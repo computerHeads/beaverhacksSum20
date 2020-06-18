@@ -1,0 +1,24 @@
+{
+  "name": "beaverhackssum20",
+  "version": "1.0.0",
+  "description": "beaverhacksSum20",
+  "main": "server.js",
+  "dependencies": {
+    "mongoose": "^5.9.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/computerHeads/beaverhacksSum20.git"
+  },
+  "author": "Computer Heads",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/computerHeads/beaverhacksSum20/issues"
+  },
+  "homepage": "https://github.com/computerHeads/beaverhacksSum20#readme"
+}
