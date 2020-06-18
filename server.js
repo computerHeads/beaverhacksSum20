@@ -1,9 +1,10 @@
 const express = require('express');
+const connectDb = require('./config/dB');
 
-const PORT = process.env.PORT || 3000;
 const app = express();
-
+const PORT = process.env.PORT || 3000; // set port
 app.use(express.json({ extended: false }));
+connectDb(); //  connect database
 
 app.get('/', (req, res) => res.send('App is working!')); // test route for server
 
