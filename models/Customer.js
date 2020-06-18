@@ -1,4 +1,4 @@
-// mongoDB schema for Customers
+// mongoDB schema for Customers (edited)
 const mongoose = require('mongoose');
 
 const CustomerSchema = new mongoose.Schema({

@@ -1,4 +1,4 @@
-// mongoDB schema for Businesses
+// mongoDB schema for Businesses (edited)
 const mongoose = require('mongoose');
 
 const BusinessSchema = new mongoose.Schema({
