@@ -20,7 +20,7 @@ router.get('/manager/:business_id', async (req, res) => {
     }
   } catch (error) {
     console.error(error.message);
-    res.status(400).json({ msg: 'Error: no matching business found' });
+    res.status(500).send('Server error');
   }
 });
 
@@ -29,6 +29,10 @@ router.put('/', async (req, res) => {
   const { businessId, customerId } = req.body;
   try {
     let queue = await Queue.findOne({ business: businessId }); // find a matching queue with the businessId
+    if (!queue) {
+      console.error(error.message);
+      return res.status(400).json({ msg: 'Error: no matching customer found' });
+    }
     queue = await Queue.findOneAndUpdate(
       { customers: customerId },
       { entered: true }
@@ -36,7 +40,7 @@ router.put('/', async (req, res) => {
     res.json({ msg: 'customer marked, entered' });
   } catch (error) {
     console.error(error.message);
-    res.status(400).json({ msg: 'Error: no matching customer found' });
+    res.status(500).send('Server error');
   }
 });
 
@@ -45,11 +49,15 @@ router.delete('/', async (req, res) => {
   const { businessId, customerId } = req.body;
   try {
     let queue = await Queue.findOne({ business: businessId }); // find a matching queue with the businessId
+    if (!queue) {
+      console.error(error.message);
+      return res.status(400).json({ msg: 'Error: no matching customer found' });
+    }
     queue = await Queue.findOneAndDelete({ customers: customerId }); // update entered value to true  *not sure if this works need to see data in DB*
     res.json({ msg: 'customer deleted' });
   } catch (error) {
     console.error(error.message);
-    res.status(400).json({ msg: 'Error: no matching customer found' });
+    res.status(500).send('Server error');
   }
 });
 
