@@ -2,21 +2,26 @@ const express = require('express');
 const router = express.Router();
 const Queue = require('../models/Queue');
 const Business = require('../models/Business');
+const Setting = require('../models/Setting');
 
 // GET route to load manager page
 router.get('/manager/:business_id', async (req, res) => {
   try {
-    const business = await Business.findOne({ business: req.params.business_id });
-    if(!business){ 
-      return res.status(400).json({ msg: 'business not found'})
+    const business = await Business.findOne({
+      business: req.params.business_id,
+    });
+    const setting = await Setting.findOne({ business: req.params.business_id });
+    if (!business) {
+      return res.status(400).json({ msg: 'business not found' });
+    } else if (!setting) {
+      return res.status(400).json({ msg: 'settings not found' });
     } else {
-      res.json(business);
+      res.json(business, setting);
     }
   } catch (error) {
     console.error(error.message);
     res.status(400).json({ msg: 'Error: no matching business found' });
   }
-  const {name, open, close, maxOccupancy}
 });
 
 // PUT route for updating the customer list (includes marking custers as "entered")
