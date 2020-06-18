@@ -21,6 +21,10 @@ const QueueSchema = new mongoose.Schema({
         required: true,
         unique: true,
       },
+      entered: {
+        type: Boolean,
+        default: false,
+      },
       date: {
         type: Date,
         default: Date.now,
