@@ -7,6 +7,9 @@ router.get('/manager', (req, res) => {
 });
 
 // PUT route for updating the customer list (includes marking custers as "entered")
-router.put('/');
+router.put('/', async (req, res) => {
+  try {
+  } catch (error) {}
+});
 
 module.exports = router;
