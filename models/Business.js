@@ -1,4 +1,4 @@
-// mongoDB schema for Businesses
+// mongoDB schema for Businesses (edited)
 const mongoose = require('mongoose');
 
 const BusinessSchema = new mongoose.Schema({
@@ -27,3 +27,5 @@ const BusinessSchema = new mongoose.Schema({
     required: true,
   },
 });
+
+module.exports = Business = mongoose.model('business', BusinessSchema);
