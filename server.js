@@ -9,7 +9,7 @@ connectDb(); //  connect database
 app.get('/', (req, res) => res.send('App is working!')); // test route for server
 
 // define routes
-app.use('/addCustomer', require('./routes/addCustomer'));
 app.use('/manageCustomers', require('./routes/mngCust'));
+app.use('/addCustomer', require('./routes/addCustomer'));
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
