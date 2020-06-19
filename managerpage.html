@@ -9,16 +9,83 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <title>Setting/Manage page</title>
-  </head>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Css for the side nav bar-->
+    <style>
+    body {
+      margin: 0;
+      font-family: "Lato", sans-serif;
+    }
+    .sidebar {
+      margin: 0;
+      padding: 0;
+      width: 200px;
+      background-color: #f1f1f1;
+      position: fixed;
+      height: 100%;
+      overflow: auto;
+    }
+    .sidebar a {
+      display: block;
+      color: black;
+      padding: 16px;
+      text-decoration: none;
+    }
+    .sidebar a.active {
+      background-color: #0000FF;
+      color: white;
+    }
+    .sidebar a:hover:not(.active) {
+      background-color: #555;
+      color: white;
+    }
+    div.content {
+      margin-left: 200px;
+      padding: 1px 16px;
+      height: 1000px;
+    }
+    
+    @media screen and (max-width: 700px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+      .sidebar a {float: left;}
+      div.content {margin-left: 0;}
+    }
+    
+    @media screen and (max-width: 400px) {
+      .sidebar a {
+        text-align: center;
+        float: none;
+      }
+    }
+    </style>
+</head>
+  <!--Body starts here-->
   <body class="bg-light">
      <br>  
+    
+    <!-- The sidebar -->
+<div class="sidebar">
+    <a href="index.html">Home</a>
+    <a class="active" href="managerpage.html">Settings</a>
+    <a href="managerpage2.html">Manager</a>
+  </div>
+  
+      
+     <!--container for the two boxes-->
     <div class="container">
         <div class="jumbotron">
-        <div class="row">
+            <!--title text-->
+            
+        <br><div class="row">
           <div class="col mr-2 border border-primary">
            
             <div class="row border border-primary">
-                <h1 class="display-1 text-primary"> Restaruants </h1>
+                <h1 class="display-1 text-primary"> Restaurants </h1>
                 <div class="container">
                 <label for="appt" style="font-size:30px">Open At:</label>
                 <input type="time"></input>
