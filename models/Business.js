@@ -83,7 +83,7 @@ BusinessSchema.methods.comparePassword = function (plainPassword, cb) {
 // LogIn: Generate token if the password is not wrong
 BusinessSchema.methods.createToken = function (cb) {
   var business = this;
-  var token = jwt.sign(business._id.toHexString(), 'queueueToken');
+  var token = jwt.sign(business._id.toHexString(), secret.jwtSecret);
   business.token = token;
   business.save(function (err, business) {
     if (err) return cb(err);
@@ -94,7 +94,7 @@ BusinessSchema.methods.createToken = function (cb) {
 // Authentification
 BusinessSchema.statics.foundByToken = function (token, cb) {
   var business = this;
-  jwt.verify(token, 'queueueToken', function (err, decoded) {
+  jwt.verify(token, secret.jwtSecret, function (err, decoded) {
     business.findOne({ _id: decoded, token: token }, function (err, business) {
       if (err) return cb(err);
       cb(null, business);
