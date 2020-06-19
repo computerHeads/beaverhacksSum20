@@ -4,7 +4,7 @@ const connectDb = require('./config/dB');
 const cookieParser = require('cookie-parser');
 const app = express();
 const PORT = process.env.PORT || 3000; // set port
-
+app.use(express.static('client'));
 app.use(cookieParser());
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
