@@ -4,21 +4,22 @@ const Queue = require('../models/Queue');
 const Business = require('../models/Business');
 
 // default route when first arriving on page
-// route : /?id = :business_id
-router.get('/', async (req, res) => {
+// loads business data & form for customer entry
+// route : /:business_id -> placeholder
+router.get('/:business_id', async (req, res) => {
   try {
     var payload = {};
-    let business = await Business.findById({ _id: req.query.id }).select(
-      '-password'
-    );
+    let business = await Business.findById({
+      _id: req.params.business_id,
+    }).select('-password');
     business = business.toJSON(); // convert to json obj due to new security update in hbs
     if (!business) {
       return res.status(400).json({ msg: 'Error: could not find business' });
     }
-    let queue = await Queue.findOne({ business: req.query.id });
+    let queue = await Queue.findOne({ business: req.params.business_id });
     // first use and queue does not exist yet
     if (!queue) {
-      payload.business = req.query.id;
+      payload.business = req.params.business_id;
       queue = new Queue(payload);
       await queue.save();
     }
@@ -33,7 +34,6 @@ router.get('/', async (req, res) => {
         count++;
       }
     }
-
     payload.wait = count - inside;
     payload.business = business;
     console.log(payload);
