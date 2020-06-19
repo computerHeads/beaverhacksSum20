@@ -1,7 +1,12 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+
+ const connectDb = require('./config/dB');
+
+=======
 const connectDb = require('./config/dB');
 const cookieParser = require('cookie-parser');
+
 const app = express();
 const PORT = process.env.PORT || 3000; // set port
 
@@ -14,7 +19,7 @@ connectDb(); //  connect database
 
 app.get('/', (req, res) => res.render('home')); // default route to app
 
-// define routes
+ define routes
 app.use('/business', require('./routes/account'));
 app.use('/business', require('./routes/login'));
 app.use('/business', require('./routes/auth'));
