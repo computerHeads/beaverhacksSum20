@@ -6,7 +6,7 @@ const SettingSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'business',
   },
-  oepn: {
+  open: {
     type: Number,
     required: true,
   },
