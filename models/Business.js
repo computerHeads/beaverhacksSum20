@@ -32,6 +32,20 @@ const BusinessSchema = new mongoose.Schema({
     required: true,
     minlength: 4,
   },
+  settings: {
+    open: {
+      type: Number,
+      required: true,
+    },
+    close: {
+      type: Number,
+      required: true,
+    },
+    maxOccupancy: {
+      type: Number,
+      required: true,
+    },
+  },
   token: {
     type: String,
   },
@@ -44,9 +58,9 @@ const BusinessSchema = new mongoose.Schema({
 BusinessSchema.pre('save', function (next) {
   var business = this;
 
-  if (business.isModified('password')){
+  if (business.isModified('password')) {
     bcrypt.genSalt(saltRounds, function (err, salt) {
-      if (err) return next (err);
+      if (err) return next(err);
       bcrypt.hash(business.password, salt, function (err, hash) {
         if (err) return next(err);
         business.password = hash;
@@ -64,7 +78,7 @@ BusinessSchema.methods.comparePassword = function (plainPassword, cb) {
     if (err) return cb(err);
     cb(null, isMatch);
   });
-}
+};
 
 // LogIn: Generate token if the password is not wrong
 BusinessSchema.methods.createToken = function (cb) {
@@ -73,19 +87,19 @@ BusinessSchema.methods.createToken = function (cb) {
   business.token = token;
   business.save(function (err, business) {
     if (err) return cb(err);
-    cb (null, business)
+    cb(null, business);
   });
-}
+};
 
 // Authentification
 BusinessSchema.statics.foundByToken = function (token, cb) {
   var business = this;
   jwt.verify(token, 'queueueToken', function (err, decoded) {
-    business.findOne({"_id": decoded, "token": token}, function (err,business) {
+    business.findOne({ _id: decoded, token: token }, function (err, business) {
       if (err) return cb(err);
       cb(null, business);
     });
   });
-}
+};
 
 module.exports = Business = mongoose.model('business', BusinessSchema);

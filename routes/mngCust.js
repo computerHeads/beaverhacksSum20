@@ -5,12 +5,11 @@ const Business = require('../models/Business');
 const Setting = require('../models/Setting');
 
 // GET route to load manager page
-router.get('/manager/:business_id', async (req, res) => {
+router.get('/', async (req, res) => {
+  console.log(req.query.id);
   try {
-    const business = await Business.findOne({
-      business: req.params.business_id,
-    });
-    const setting = await Setting.findOne({ business: req.params.business_id });
+    const business = await Business.findOne({ _id: req.query.id });
+    const setting = await Setting.findOne({ business: req.query.id });
     if (!business) {
       return res.status(400).json({ msg: 'business not found' });
     } else if (!setting) {
