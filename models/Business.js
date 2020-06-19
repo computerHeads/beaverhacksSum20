@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const saltRounds = 10;
+const secret = require('../config/default');
 
 const BusinessSchema = new mongoose.Schema({
   name: {
@@ -57,7 +58,6 @@ const BusinessSchema = new mongoose.Schema({
 // Password Encryption before saving to Database
 BusinessSchema.pre('save', function (next) {
   var business = this;
-
   if (business.isModified('password')) {
     bcrypt.genSalt(saltRounds, function (err, salt) {
       if (err) return next(err);
