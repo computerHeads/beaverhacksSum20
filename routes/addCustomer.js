@@ -3,8 +3,9 @@ const router = express.Router();
 const Queue = require('../models/Queue');
 const Business = require('../models/Business');
 
+// default route when first arriving on page
 // route : /?id = :business_id
-router.get('/add', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     var payload = {};
     let business = await Business.findOne({ business: req.query.id });
@@ -27,4 +28,26 @@ router.get('/add', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  const { businiessId, name, phone, email } = req.body;
+  const customerInfo = {};
+  customerInfo.name = name;
+  customerInfo.phone = phone;
+  customerInfo.email = email;
+
+  try {
+    let queue = await Queue.findOne({ business: businiessId });
+    if (queue) {
+      queue = await Queue.findByIdAndUpdate(
+        { business: businiessId },
+        { $push: customerInfo }
+      );
+      queue = await Queue.findOne({ business: businiessId });
+      res.json(queue); // don't need to send whole q back
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server error');
+  }
+});
 module.exports = router;
