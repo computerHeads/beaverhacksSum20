@@ -9,163 +9,127 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <title>Setting/Manage page</title>
-  
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Css for the side nav bar-->
     <style>
+
     body {
-      margin: 0;
-      font-family: "Lato", sans-serif;
+      background: linear-gradient(to right, #0062E6, #3cddec);
     }
-    .sidebar {
-      margin: 0;
-      padding: 0;
-      width: 200px;
-      background-color: #f1f1f1;
-      position: fixed;
-      height: 100%;
-      overflow: auto;
-    }
-    .sidebar a {
-      display: block;
-      color: black;
-      padding: 16px;
-      text-decoration: none;
-    }
-    .sidebar a.active {
-      background-color: #0000FF;
-      color: white;
-    }
-    .sidebar a:hover:not(.active) {
-      background-color: #555;
-      color: white;
-    }
-    div.content {
-      margin-left: 200px;
-      padding: 1px 16px;
-      height: 1000px;
-    }
-    
-    @media screen and (max-width: 700px) {
-      .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-      }
-      .sidebar a {float: left;}
-      div.content {margin-left: 0;}
-    }
-    
-    @media screen and (max-width: 400px) {
-      .sidebar a {
-        text-align: center;
-        float: none;
-      }
-    }
+
     </style>
 </head>
-  <!--Body starts here-->
-  <body class="bg-light">
-     <br>  
-    
-    <!-- The sidebar -->
-<div class="sidebar">
-    <a href="index.html">Home</a>
-    <a class="active" href="managerpage.html">Settings</a>
-    <a href="managerpage2.html">Manager</a>
-    <a href="#">Log Out</a>
+<!--nav bar-->
+<body style="font-family: segoe ui" class="display-5">
+  <nav class="navbar-light bg-light navbar navbar-expand-sm ">
+            <a class="navbar-brand" href="#">
+                <img src="https://png.pngtree.com/png-clipart/20190706/original/pngtree-passengers-who-queue-up-to-buy-tickets-are-free-of-elements-png-image_4373331.jpg" height="120">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Settings</a>
+                </li>
+                <li class="nav-item">
+
+                <a class="nav-link" href="managerpage2.html">Manager</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#bottom">Contact Us</a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+  <div class="container">
+    <div class="row ">
+      <div class="col col-lg-8 col-md-6 col-sm-4 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <!--titles-->
+            <h4 class="card-title text-center">Please Select from the following:</h4>
+            <h4 class="card-title text-center">What kind of store do you own?</h4>
+            <form class="form-signin">
+
+
+
+              <hr class="my-4">
+                  <h4 class="card-title text-center">Are you a...</h4>
+            </form>
+          </div>
+          <!--these are the three buttons-->
+          <div class="text-center">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="height: 150px; width: 400px;"><span style="font-size:30px;">Restaurant Owner</span></button>
+          <br><br><br><br><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="height: 150px; width: 400px;"><span style="font-size:30px;">Store Owner</span></button>
+          <br><br><br><br><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="height: 150px; width: 400px;"><span style="font-size:30px;">Other</span></button>
+            </div>
+            <br><br><br><br><br>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <!--this is what is inside the popup-->
+                  <form>
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Restaurant Owner</label>
+                      <div class="container">
+                                          <label for="appt">Please select time you will be opening: </label>
+                                          <input type="time"></input>
+                                          </div>
+                                          <br>
+                                          <div class="container">
+                                        <label for="appt">Please select time you will be closing:</label>
+                                        <input type="time"></input>
+                                        </div>
+                                          <hr>
+                                            <h5>Maximum Tables</h5>
+                                            <input>
+                                             <h5 >(if 1 group = 1 person)</h5>
+                                             <h5>OR</h5>
+                                          <h5 class="display-5">Maximum Tables </h5>
+                                            <input>
+                                            <h5>(if 1 group /= 1 person)</h5>
+                                            </div>
+                                            <hr class="my-4">
+
+                                            <label> If the customer never shows up, what time you like them auto drop off the list? </label>
+                                                                <input type="time"></input><br><br><br>
+                                            <div class="form-group">
+                                              <label for="message-text" class="col-form-label">Additional Comments:</label>
+                                              <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <!--last two buttons at the bottom-->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  
-      
-     <!--container for the two boxes-->
-    <div class="container">
-        <div class="jumbotron">
-            <!--title text-->
-            
-        <br><div class="row">
-          <div class="col mr-2 border border-primary">
-           
-            <div class="row border border-primary">
-                <h1 class="display-1 text-primary"> Restaurants </h1>
-                <div class="container">
-                <label for="appt" style="font-size:30px">Open At:</label>
-                <input type="time"></input>
-                </div>
-                <br>
-                <div class="container">
-                <label for="appt" style="font-size:30px">Close At:</label>
-                <input type="time"></input><br>
-                </div><br>
-            </div>
-            <div class="row border border-primary">
-                <div class="col">
-                
-                    <div>
-                        <br>
-                        <h5 class="display-5 font-weight-bold">Maximum Tables</h5>
-                        <input>
-                         <h5 >(if 1 group = 1 person)</h5>
-                         <h3 class="display-5 text-info">OR</h3>
-                    </div> 
-                        <h5 class="display-5">Maximum Tables </h5>
-                        <input></input>
-                        <h5>(if 1 group /= 1 person)</h5>
-                    <br>
-                </div>
-           
-            </div>
-            <div class="row border border-primary">
-                <div class="container">
-                    <br><p style="font-size:35px"> Customer data will expire today at: </p>
-                    <input type="time"></input><br><br><br>
-                    </div>
-            </div>
-            <div class="row">
-                <div class="container text-center"><br>
-                <button type="button" class="btn btn-block btn-danger text-center text-dark">SUBMIT</button>
-            </div><br>
-            </div><br>
-            
-          </div>
-          <div class="col border border-primary ml-2">
-            <div class="row border border-primary">
-                <h1 class="display-1 text-primary"> Store/Others </h1> 
-                <div class="container">
-                    <label for="appt" style="font-size:30px">Open At:</label>
-                    <input type="time">
-                    </div>
-                    <br>
-                    <div class="container">
-                    <label for="appt" style="font-size:30px">Close At:</label>
-                    <input type="time">
-                    </div>   
-            </div>
-            <div class="row border border-primary">
-                <div class="col">
-                    <br><h5 class="display-5 font-weight-bold">Maximum Tables</h5>
-                    <input></input>
-                    <br>
-                    <br><input type="radio" name="q" value="first"> &nbsp; 1 group = 1 person</input>
-                    <br><br><input type="radio" name="q" value="second"> &nbsp; 1 group = 2 people</input>
-                    <br><br><br><br><br>
-                </div>
-            </div>
-            <div class="row border border-primary">
-                <div class="container">
-                <br><p style="font-size:35px"> Customer data will expire today at: </p>
-                <input type="time"></input><br><br><br>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container text-center"><br>
-                <button type="button" class="btn btn-block btn-danger text-center text-dark">SUBMIT</button>
-            </div><br>
-            </div><br>
-          </div>
-        </div>
-        </div><br><br><br><br><br><br>
-        <a class="nav-link" href="#top">Home</a>
-        </div>
+
+
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
