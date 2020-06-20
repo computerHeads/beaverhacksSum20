@@ -1,121 +1,83 @@
-<!--links to jump to parts of the page-->
-<!--Top navbar part thats just links to other pages or drag downs-->
-<nav class="navbar-light bg-light navbar navbar-expand-sm ">
-    <a class="navbar-brand" href="#">
-        <img src="https://png.pngtree.com/png-clipart/20190706/original/pngtree-passengers-who-queue-up-to-buy-tickets-are-free-of-elements-png-image_4373331.jpg"
-            height="120">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav active">
-            <li class="nav-item">
-                <a class="nav-link" href="#">HOME</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost:3000/Login">LOGIN<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost:3000/sign-up">SIGN UP</a>
-            </li>
-            <li class="nav-item">
-
-                <a class="nav-link" href="#about">ABOUT US</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#bottom">CONTACT US</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<br><br><br><br>
-
-<div class="text-center jumbotron jumbotron-fluid">
-    <!--- Main part of page-->
-    <h1 class="display-1 text-info">QUEUEUE:</h1>
-    <h3>Save your customer's precious time</h3>
-
-    <hr>
-    <!---BUTTONS-->
-    <br>
-    <div type="button">
-        <button class="btn btn-secondary btn-outline-primary btn-lg"><a
-                href="http://localhost:3000/Login">LOGIN</a></button>
-        <button class="btn btn-secondary btn-outline-primary btn-lg"><a href="http://localhost:3000/sign-up">SIGN
-                UP</a></button>
+<div class="text-center">
+    <div class="row">
+        <div class="col">
+            <!--- Main part of page-->
+            <img src="/css/img/background pic.png" class="mx-auto">
+        </div>
+        <hr>
+        <!---BUTTONS-->
+        <div class="col text-center">
+            <br><br><br><br>
+            <h1 class=" display-2"> QUEUEUE </h1>
+            <h3 style="font-family:raleway"> Save your customer's precious time</h3>
+            <br>
+            <br>
+            <div type="button">
+                <button class="btn btn-secondary btn-lg" onclick="location.href='http://localhost:3000/login'"> LOGIN
+                </button>
+                <button class="btn btn-secondary  btn-lg" onclick="location.href='http://localhost:3000/sign-up'">
+                    CREATE ACCOUNT </button>
+            </div>
+        </div>
     </div>
 </div>
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <!--Second page-->
 <a id="about"></a>
-<div class="jumbotron">
-    <h1 class="text-danger">This the about page/How to page</h1>
+<div class="container-fluid" style="background: linear-gradient(to right, #0062E6, #3cddec);">
+    <h1 class="text-light">What is Queue?</h1>
+    <hr><br><br>
     <div>
-        <hr>
         <h4 class="display-4">
-            <span class="text-info">Queue: </span>
+            <span class="text-light">Queue: </span>
             <span>is a web application for businesses to manage their
                 customer's queue every day.</span>
         </h4>
-        </h1>
     </div>
-</div>
-<div class="row">
-    <div class="col">
-        <div class="card h-100 border-info">
-            <div class="card-header">
-                Simple Instruction 1
-            </div>
-            <div class="card-body">
-                <p class=" card-text">
-                    asdfasdfasdfasdfasdfasdfasdfasdfasdfasd
-                </p>
-            </div>
+    <div class="row">
+        <div class="col">
+            <img src="/css/img/logo1.png" style="height:120px" class="center">
+            <p class=" card-text">
+                The current COVID-19 situation has created the need for social distancing. This has changed the way we
+                as a
+                society go about our everyday lives, one example in particular is the routine act of visiting your local
+                businesses.
+                In order to maintain safe distances occupancy limits are being enforced, and lines to enter businesses
+                are
+                becoming common.
+            </p>
         </div>
-    </div>
-    <div class="col">
-        <div class="card h-100 border-info">
-            <div class="card-header">
-                Simple Instruction 2
-            </div>
-            <div class="card-body">
-                <p class=" card-text">
-                    alsdfhakjsdhfjkashdjfkldkfaklfaslk;dfakldfjal
-                </p>
-            </div>
+        <div class="col">
+            <img src="/css/img/logo2.png" style="height:120px" class="center">
+            <p class=" card-text">
+                We aim to address this with an app that will allow for digital queuing of customers. With use of an
+                online
+                portal, businesses
+                are able to set a maximum occupancy limit to meet guidelines for social distancing.
+            </p>
         </div>
-    </div>
-    <div class="col">
-        <div class="card h-100 border-info">
-            <div class="card-header">
-                Simple Instruction 3
-            </div>
-            <div class="card-body">
-                <p class=" card-text">
-                    alsdfhakjsdhfjkashdjfkldkfaklfaslk;dfakldfjal
-                </p>
-            </div>
+        <div class="col">
+            <img src="/css/img/logo3.png" style="height:120px" class="center">
+            <p class=" card-text">
+                Customers are able to enter their contact information and wait in the safety and comfort of their own
+                vehicle
+                away from
+                the elements and other customers. When it has been determined that the occupancy of the business is
+                below the
+                maximum set point the next customer in the queue will be alerted of their turn to enter.
+            </p>
         </div>
     </div>
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
 <!---Thie page-->
-<div class="text-center">
-    <h1 class="display-2 text-info"> Contact Us</h1>
-    <br>
-    <button type="button" class="btn btn-secondary btn-lg" style="height: 150px; width: 400px; font-size: 40px"> Contact
-        Info</button>
+<div class="container-fluid" style="background-image: url('/css/img/bgimg.png');">
+    <div class="text-center">
+        <h1 class="display-2 text-info"> Contact Us</h1>
+        <button type="button" class="btn btn-secondary btn-lg"
+            style="height: 150px; width: 400px; font-size: 40px">Contact Info</button>
+    </div>
+    <a id="bottom"></a>
 </div>
-
-<a id="bottom"></a>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<a class="nav-link" href="#top">Back to Top</a>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
