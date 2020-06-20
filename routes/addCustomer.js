@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Queue = require('../models/Queue');
 const Business = require('../models/Business');
+const sendEmail = require('../public/notifications/email.js');
 
 // default route when first arriving on page
 // loads business data & form for customer entry
@@ -44,7 +45,7 @@ router.get('/:business_id', async (req, res) => {
   }
 });
 
-// router for receiving customer data
+// router for receiving customer data (make a reservation)
 router.post('/:business_id', async (req, res) => {
   // console.log(req.params.business_id);
   const { name, phone, email, businessId } = req.body;
@@ -77,8 +78,11 @@ router.post('/:business_id', async (req, res) => {
       payload = {};
       payload.customerId = customerId;
       payload.wait = wait;
-      // console.log(payload);
       res.json(payload);
+
+      // send notifications
+      // add date and time of reservation
+      sendEmail.notify(name, email, business.name);
     } else {
       res.status(400).send('Could not find customer queue');
     }
@@ -90,18 +94,19 @@ router.post('/:business_id', async (req, res) => {
 
 // route for updating a reservation
 router.put('/:business_id', async (req, res) => {
-  const { name, phone, email, customerId, businessId } = req.body;
-  customer = {};
-  customer.name = name;
-  customer.phone = phone;
-  customer.email = email;
-  customer._id = customerId;
-
+  const { name, phone, email, customerId } = req.body;
   try {
     let queue = await Queue.findOneAndUpdate(
-      { business: businessId },
-      { customers: { _id: customerId } }
+      { 'customers._id': customerId },
+      {
+        $set: {
+          'customers.$.name': name,
+          'customers.$.phone': phone,
+          'customers.$.email': email,
+        },
+      }
     );
+    queue.customers;
     res.send('yay');
   } catch (error) {
     console.error(error.message);
