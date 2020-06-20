@@ -14,6 +14,7 @@ app.set('view engine', 'handlebars');
 app.use(express.json({ extended: false }));
 
 connectDb(); //  connect database
+app.get('/login', (req, res) => res.render('login'));
 
 app.get('/', (req, res) => res.render('home')); // default route to app
 app.get('/login', (req, res) => res.render('login'));
