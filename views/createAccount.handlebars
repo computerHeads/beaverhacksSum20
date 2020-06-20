@@ -48,30 +48,129 @@
             <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
 
-            <h3 class="card-title text-center">Create Account</h3>
+            <h3 class="card-title text-center">Sign Up</h3>
             <form class="form-signin">
               <div class="form-label-group">
-                <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
-                <label for="inputUserame">Username</label>
+                <input name="name" type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+                <label for="inputUserame">Name</label>
               </div>
 
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
                 <label for="inputEmail">Email address</label>
               </div>
               
               <hr>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
                 <label for="inputPassword">Password</label>
               </div>
-              
-              <div class="form-label-group">
-                <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
-                <label for="inputConfirmPassword">Confirm password</label>
-              </div>
+              <hr>
 
+              <h4 class="card-title text-center">Business Info</h4>
+
+                <div class="form-label-group">
+                  <input name="businessName" type="text" id="inputBusinessName" class="form-control" placeholder="Business Name" required>
+                  <label for="inputBusinessName">Business Name</label>
+                </div>
+                
+                <div class="form-label-group">
+                  <input name="phone" type="text" id="inputPhone" class="form-control" placeholder="Phone" required>
+                  <label for="inputPhone">Phone</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input name="website" type="text" id="inputWebsite" class="form-control" placeholder="Website" required>
+                  <label for="inputWebsite">Website</label>
+                </div>
+
+                <hr>
+
+                <div class="form-label-group">
+                  <input name="addressOne" type="text" id="inputAddressOne" class="form-control address" placeholder="Address Line 1" required>
+                  <label for="inputAddressOne">Address 1</label>
+                </div>
+                
+                <div class="form-label-group">
+                  <input name="addressTwo" type="text" id="inputAddressTwo" class="form-control address" placeholder="Address Line 2" required>
+                  <label for="inputAddressTwo">Address 2</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input name="city" type="text" id="inputCity" class="form-control address" placeholder="City" required>
+                  <label for="inputCity">City</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input name="state" type="text" id="inputState" class="form-control address" placeholder="State" required>
+                  <label for="inputState">State</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input name="zip" type="text" id="inputZip" class="form-control address" placeholder="Zip" required>
+                  <label for="inputZip">Zip</label>
+                </div>
+
+                <hr>
+
+                <div class="form-label-group">
+                  <input name="open" type="time" id="inputOpenTime" class="form-control" placeholder="Open" required>
+                  <label for="inputOpenTime">Open</label>
+                </div>
+
+                <div class="form-label-group text-center open-day">
+                  <br><input name="openDays" type="checkbox" id="inputMon" value="Mon"> Mon &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input name="openDays" type="checkbox" id="inputTue" value="Tue"> Tue &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input name="openDays" type="checkbox" id="inputWed" value="Wed"> Wed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input name="openDays" type="checkbox" id="inputThu" value="Thu"> Thu 
+                  <hr>
+                  <input name="openDays" type="checkbox" id="inputFri" value="Fri"> Fri &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input name="openDays" type="checkbox" id="inputSat" value="Sat"> Sat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input name="openDays" type="checkbox" id="inputSun" value="Sun"> Sun 
+                  <br><br>
+                </div>              
+
+                <div class="form-label-group">
+                  <input name="close" type="time" id="inputClose" class="form-control" placeholder="Close" required>
+                  <label for="inputClose">Close</label>
+                </div>
+
+                <hr>
+
+                <div class="form-label-group">
+                  <input name="maxOccupancy" type="number" id="inputMaxOccupancy" class="form-control" placeholder="Max Occupancy (tables/people)" required>
+                  <label for="inputMaxOccupancy">Max Occupancy (tables/people)</label>
+                </div>
+                
+
+                <div class="col-auto my-2 form-label-group">
+                  <select name="businessType" id="inputType" class="custom-select">
+                    <option selected>Choose Business Type... </option>
+                    <option name="businessType" value="Restaurants">Restaurants</option>
+                    <option name="businessType" value="Stores">Stores</option>
+                    <option name="businessType" value="Others">Others</option>
+                  </select>
+                </div>
+                <hr>
+
+                <div class="form-group text-center">
+                  <div class="form-check">
+                    <input name="isShowBusinessInfo" class="form-check-input" type="checkbox" value="" id="showBusinessInfoPublic" checked>
+                    <label class="form-check-label" for="showBusinessInfoPublic">
+                      Show my business info to public
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="form-group text-center">
+                  <div class="form-check">
+                    <input name="isAgreeTerms" class="form-check-input" type="checkbox" value="" id="agreeCondition" required>
+                    <label class="form-check-label" for="agreeCondition">
+                      Agree to terms and conditions
+                    </label>
+                  </div>
+                </div>
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
             </form>
           </div>
