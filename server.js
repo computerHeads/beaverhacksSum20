@@ -18,7 +18,7 @@ connectDb(); //  connect database
 app.get('/', (req, res) => res.render('home')); // default route to app
 app.get('/login', (req, res) => res.render('login'));
 app.get('/sign-up', (req, res) => res.render('createAccount'));
-// Use public folder to link with css files
+app.get('/sign-up-success', (req, res) => res.render('successCreateAccount'));
 
 //define routes
 app.use('/business', require('./routes/account'));

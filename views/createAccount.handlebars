@@ -51,8 +51,8 @@
             <h3 class="card-title text-center">Sign Up</h3>
             <form class="form-signin">
               <div class="form-label-group">
-                <input name="name" type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
-                <label for="inputUserame">Name</label>
+                <input name="name" type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
+                <label for="inputName">Name</label>
               </div>
 
               <div class="form-label-group">
@@ -68,7 +68,7 @@
               </div>
               <hr>
 
-              <h4 class="card-title text-center">Business Info</h4>
+              {{!-- <h4 class="card-title text-center">Business Info</h4>
 
                 <div class="form-label-group">
                   <input name="businessName" type="text" id="inputBusinessName" class="form-control" placeholder="Business Name" required>
@@ -76,7 +76,7 @@
                 </div>
                 
                 <div class="form-label-group">
-                  <input name="phone" type="text" id="inputPhone" class="form-control" placeholder="Phone" required>
+                  <input name="phone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="inputPhone" class="form-control" placeholder="Phone" required>
                   <label for="inputPhone">Phone</label>
                 </div>
 
@@ -93,7 +93,7 @@
                 </div>
                 
                 <div class="form-label-group">
-                  <input name="addressTwo" type="text" id="inputAddressTwo" class="form-control address" placeholder="Address Line 2" required>
+                  <input name="addressTwo" type="text" id="inputAddressTwo" class="form-control address" placeholder="Address Line 2">
                   <label for="inputAddressTwo">Address 2</label>
                 </div>
 
@@ -115,8 +115,8 @@
                 <hr>
 
                 <div class="form-label-group">
-                  <input name="open" type="time" id="inputOpenTime" class="form-control" placeholder="Open" required>
-                  <label for="inputOpenTime">Open</label>
+                  <input name="open" type="time" id="inputOpen" class="form-control" placeholder="Open" required>
+                  <label for="inputOpen">Open</label>
                 </div>
 
                 <div class="form-label-group text-center open-day">
@@ -170,16 +170,18 @@
                       Agree to terms and conditions
                     </label>
                   </div>
-                </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                </div> --}}
+              <button id="submitBtn" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onclick="sendAccountForm()">Register</button>
             </form>
           </div>
         </div>
-    </div>
       </div>
     </div>
   </div>
+</div>
 
+<!-- Required JavaScript -->
+<script src="/client/addAccount.js"></script>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
