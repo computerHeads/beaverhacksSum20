@@ -56,6 +56,7 @@ function sendForm() {
   req.send(JSON.stringify(payload));
   req.addEventListener('load', () => {
     var response = JSON.parse(req.response);
+    document.getElementById('hiddenDiv').style.display = 'none';
     var submitBtn = document.getElementById('submitBtn');
     submitBtn.value = 'Edit reservation';
     submitBtn.setAttribute('onclick', `editCustomer('${response.customerId}')`);
@@ -103,9 +104,11 @@ function cancel(customerId) {
   req.setRequestHeader('Content-Type', 'application/json');
   req.send(JSON.stringify(payload));
   req.addEventListener('load', () => {
+    var submitBtn = document.getElementById('submitBtn'); // set btn back to original submit
+    submitBtn.value = 'Submit';
+    submitBtn.setAttribute('onclick', 'sendForm()');
     document.getElementsByTagName('form')[0].reset();
-    document.getElementById('status').innerHTML =
-      'Your reservation has been canceled';
+    document.getElementById('hiddenDiv').style.display = 'inline-block';
     var cancelBtn = document.getElementById('cancelBtn');
     cancelBtn.parentNode.removeChild(cancelBtn); // remove the btn
   });
