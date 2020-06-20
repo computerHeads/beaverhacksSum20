@@ -1,25 +1,56 @@
 const baseURL = 'http://localhost:3000/addCustomer/:business_id';
 
-$('#phone').intlTelInput();
+//open source validator from https://intl-tel-input.com/node_modules/intl-tel-input/examples/gen/is-valid-number.html
+var input = document.querySelector('#phone'),
+  errorMsg = document.querySelector('#error-msg');
+// error codes
+var errorMap = [
+  'Invalid number',
+  'Invalid country code',
+  'Too short',
+  'Too long',
+  'Invalid number',
+];
+// initialise plugin
+var iti = window.intlTelInput(input, {
+  // set to international mode (include country codes in input)
+  nationalMode: false,
+  utilsScript:
+    'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js',
+});
+
+var reset = function () {
+  input.classList.remove('error');
+  errorMsg.innerHTML = '';
+  errorMsg.classList.add('hide');
+};
+
+// on blur: validate
+input.addEventListener('blur', function () {
+  reset();
+  if (input.value.trim()) {
+    if (!iti.isValidNumber()) {
+      input.classList.add('error');
+      var errorCode = iti.getValidationError();
+      errorMsg.innerHTML = errorMap[errorCode];
+      errorMsg.classList.remove('hide');
+    }
+  }
+});
+
+// on keyup / change flag: reset
+input.addEventListener('change', reset);
+input.addEventListener('keyup', reset);
 
 function sendForm() {
   var req = new XMLHttpRequest();
-
   var form = document.getElementsByTagName('form')[0];
-  var iti = intlTelInput(form.elements.phone);
-  var pnumber = iti.getNumber();
-  var editedPhone = form.elements.phone.value,
-    editedPhone = `+1${editedPhone.substring(0, 3)}${editedPhone.substring(
-      4,
-      7
-    )}${editedPhone.substring(8)}`;
   const payload = {
     name: form.elements.name.value,
-    phone: editedPhone,
+    phone: form.elements.phone.value,
     email: form.elements.email.value,
     businessId: form.elements.id.value,
   };
-  console.log(pnumber);
   req.open('POST', baseURL, true);
   req.setRequestHeader('Content-Type', 'application/json');
   req.send(JSON.stringify(payload));
