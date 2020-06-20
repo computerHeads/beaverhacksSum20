@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Setting/Manage page</title>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Css for the side nav bar-->
+    <style>
+    body {
+      margin: 0;
+      font-family: "Lato", sans-serif;
+    }
+    .sidebar {
+      margin: 0;
+      padding: 0;
+      width: 200px;
+      background-color: #f1f1f1;
+      position: fixed;
+      height: 100%;
+      overflow: auto;
+    }
+    .sidebar a {
+      display: block;
+      color: black;
+      padding: 16px;
+      text-decoration: none;
+    }
+    .sidebar a.active {
+      background-color: #0000FF;
+      color: white;
+    }
+    .sidebar a:hover:not(.active) {
+      background-color: #555;
+      color: white;
+    }
+    div.content {
+      margin-left: 200px;
+      padding: 1px 16px;
+      height: 1000px;
+    }
+    
+    @media screen and (max-width: 700px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+      .sidebar a {float: left;}
+      div.content {margin-left: 0;}
+    }
+    
+    @media screen and (max-width: 400px) {
+      .sidebar a {
+        text-align: center;
+        float: none;
+      }
+    }
+    </style>
+</head>
+  <!--Body starts here-->
+  <body class="bg-light">
+     <br>  
+    
+    <!-- The sidebar -->
+<div class="sidebar">
+    <a href="index.html">Home</a>
+    <a class="active" href="managerpage.html">Settings</a>
+    <a href="managerpage2.html">Manager</a>
+    <a href="#">Log Out</a>
+  </div>
+  
+      
+     <!--container for the two boxes-->
+    <div class="container">
+        <div class="jumbotron">
+            <!--title text-->
+            
+        <br><div class="row">
+          <div class="col mr-2 border border-primary">
+           
+            <div class="row border border-primary">
+                <h1 class="display-1 text-primary"> Restaurants </h1>
+                <div class="container">
+                <label for="appt" style="font-size:30px">Open At:</label>
+                <input type="time"></input>
+                </div>
+                <br>
+                <div class="container">
+                <label for="appt" style="font-size:30px">Close At:</label>
+                <input type="time"></input><br>
+                </div><br>
+            </div>
+            <div class="row border border-primary">
+                <div class="col">
+                
+                    <div>
+                        <br>
+                        <h5 class="display-5 font-weight-bold">Maximum Tables</h5>
+                        <input>
+                         <h5 >(if 1 group = 1 person)</h5>
+                         <h3 class="display-5 text-info">OR</h3>
+                    </div> 
+                        <h5 class="display-5">Maximum Tables </h5>
+                        <input></input>
+                        <h5>(if 1 group /= 1 person)</h5>
+                    <br>
+                </div>
+           
+            </div>
+            <div class="row border border-primary">
+                <div class="container">
+                    <br><p style="font-size:35px"> Customer data will expire today at: </p>
+                    <input type="time"></input><br><br><br>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="container text-center"><br>
+                <button type="button" class="btn btn-block btn-danger text-center text-dark">SUBMIT</button>
+            </div><br>
+            </div><br>
+            
+          </div>
+          <div class="col border border-primary ml-2">
+            <div class="row border border-primary">
+                <h1 class="display-1 text-primary"> Store/Others </h1> 
+                <div class="container">
+                    <label for="appt" style="font-size:30px">Open At:</label>
+                    <input type="time">
+                    </div>
+                    <br>
+                    <div class="container">
+                    <label for="appt" style="font-size:30px">Close At:</label>
+                    <input type="time">
+                    </div>   
+            </div>
+            <div class="row border border-primary">
+                <div class="col">
+                    <br><h5 class="display-5 font-weight-bold">Maximum Tables</h5>
+                    <input></input>
+                    <br>
+                    <br><input type="radio" name="q" value="first"> &nbsp; 1 group = 1 person</input>
+                    <br><br><input type="radio" name="q" value="second"> &nbsp; 1 group = 2 people</input>
+                    <br><br><br><br><br>
+                </div>
+            </div>
+            <div class="row border border-primary">
+                <div class="container">
+                <br><p style="font-size:35px"> Customer data will expire today at: </p>
+                <input type="time"></input><br><br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container text-center"><br>
+                <button type="button" class="btn btn-block btn-danger text-center text-dark">SUBMIT</button>
+            </div><br>
+            </div><br>
+          </div>
+        </div>
+        </div><br><br><br><br><br><br>
+        <a class="nav-link" href="#top">Home</a>
+        </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
