@@ -15,15 +15,18 @@ function sendForm() {
   req.addEventListener('load', () => {
     var response = JSON.parse(req.response);
     var submitBtn = document.getElementById('submitBtn');
-    submitBtn.value = 'Submit edits';
-    submitBtn.setAttribute('onclick', `editCustomer(${response.customerId})`);
+    submitBtn.value = 'Edit reservation';
+    submitBtn.setAttribute('onclick', `editCustomer('${response.customerId}')`);
+
     var cancel = document.createElement('button');
     cancel.innerHTML = 'Cancel reservation';
-    cancel.setAttribute('onclick', `cancel(${response.customerId})`);
+    cancel.setAttribute('onclick', `cancel('${response.customerId}')`);
     document.getElementById('cancel').appendChild(cancel); // add to document
   });
   event.preventDefault();
 }
+
+// edit a reservation
 function editCustomer(customerId) {
   var req = new XMLHttpRequest();
   var form = document.getElementsByTagName('form')[0];
@@ -43,7 +46,9 @@ function editCustomer(customerId) {
   event.preventDefault();
 }
 
+// delete/cancel a reservation
 function cancel(customerId) {
+  document.getElementsByTagName('form')[0].reset();
   var req = new XMLHttpRequest();
   payload = {};
   payload.businessId = document.getElementById('id').value;
@@ -52,10 +57,8 @@ function cancel(customerId) {
   req.setRequestHeader('Content-Type', 'application/json');
   req.send(JSON.stringify(payload));
   req.addEventListener('load', () => {
-    console.log(req.response);
-    document
-      .getElementById('status')
-      .innerHTML('Your reservation has been canceled');
+    document.getElementById('status').innerHTML =
+      'Your reservation has been canceled';
   });
   event.preventDefault();
 }

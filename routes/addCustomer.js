@@ -91,17 +91,16 @@ router.post('/:business_id', async (req, res) => {
 // route for updating a reservation
 router.put('/:business_id', async (req, res) => {
   const { name, phone, email, customerId, businessId } = req.body;
-  customerInfo = {};
-  customerInfo.customers = {};
-  customerInfo.customers.name = name;
-  customerInfo.customers.phone = phone;
-  customerInfo.customers.email = email;
+  customer = {};
+  customer.name = name;
+  customer.phone = phone;
+  customer.email = email;
+  customer._id = customerId;
 
   try {
-    let queue = await Queue.findOne({ business: businessId });
-    await queue.customers.findOneAndUpdate(
-      { _id: customerId },
-      { $push: customerInfo }
+    let queue = await Queue.findOneAndUpdate(
+      { business: businessId },
+      { customers: { _id: customerId } }
     );
     res.send('yay');
   } catch (error) {
@@ -113,11 +112,12 @@ router.put('/:business_id', async (req, res) => {
 // route for deleting a reservation
 router.delete('/:business_id', async (req, res) => {
   const { customerId, businessId } = req.body;
-  console.log(req.body);
   try {
-    console.log(customerId, businessId);
-    let queue = await Queue.findOne({ business: businessId });
-    queue.customers.findOneAndDelete({ _id: customerId });
+    await Queue.findOneAndUpdate(
+      { business: businessId },
+      { $pull: { customers: { _id: customerId } } }
+    );
+    res.send('You have been removed from the wait list');
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');
