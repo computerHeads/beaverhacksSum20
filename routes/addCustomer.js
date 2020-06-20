@@ -83,16 +83,15 @@ router.post('/:business_id', async (req, res) => {
       res.json(payload);
 
       // send notifications (SMS and Email)
-      // add date and time of reservation
-      // var message = `Hello ${name}, this is a reminder of your reservation for entry to ${business.name}. Please follow the link below to edit or cancel your reservation`;
-      // sendEmail.notify(name, email, business.name, message);
-      // client.messages
-      //   .create({
-      //     body: `Thank you ${name}! Your reservation has been confirmed. You will recevive another txt when it is your turn to enter the store`,
-      //     from: '+12029463457',
-      //     to: phone,
-      //   })
-      //   .then((message) => console.log(message.sid));
+      //add date and time of reservation
+      var message = `Hello ${name}, this is a reminder of your reservation for entry to ${business.name}. Please follow the link below to edit or cancel your reservation`;
+      sendEmail.notify(name, email, business.name, message);
+      client.messages.create({
+        body: `Thank you ${name}! Your reservation has been confirmed. You will recevive another txt when it'ss your turn to enter the store`,
+        from: '+12029463457',
+        to: phone,
+      });
+      // .then((message) => console.log(message.sid));
     } else {
       res.status(400).send('Could not find customer queue');
     }
@@ -137,15 +136,14 @@ router.delete('/:business_id', async (req, res) => {
     let business = await Business.findById({ _id: businessId });
 
     // send sms and/or email to notify they have been deleted
-    // var message = `Your reservation for ${business.name} has been canceled`;
-    // sendEmail.notify(name, email, business.name, message);
-    // client.messages
-    //   .create({
-    //     body: `This is confirmation that your reservation ${business.name} have been canceled`,
-    //     from: '+12029463457',
-    //     to: phone,
-    //   })
-    //   .then((message) => console.log(message.sid));
+    var message = `${name}, our reservation for ${business.name} has been canceled`;
+    sendEmail.notify(name, email, business.name, message);
+    client.messages.create({
+      body: `This is confirmation that your reservation ${business.name} has been canceled`,
+      from: '+12029463457',
+      to: phone,
+    });
+    // .then((message) => console.log(message.sid));
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');
