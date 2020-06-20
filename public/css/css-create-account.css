@@ -49,11 +49,19 @@
   margin-bottom: 1rem;
 }
 
+.open-day {
+  background-color: rgba(178, 205, 255, 0.303);
+  border-radius: 2rem;
+  
+}
+
+.form-label-group select,
 .form-label-group input {
   height: auto;
   border-radius: 2rem;
 }
 
+.form-label-group select,
 .form-label-group > input,
 .form-label-group > label {
   padding: var(--input-padding-y) var(--input-padding-x);
