@@ -108,7 +108,7 @@ function cancel(customerId) {
     submitBtn.value = 'Submit';
     submitBtn.setAttribute('onclick', 'sendForm()');
     document.getElementsByTagName('form')[0].reset();
-    document.getElementById('hiddenDiv').style.display = 'inline-block';
+    document.getElementById('hiddenDiv').style.display = 'inline-block'; // show the message that they have been deleted
     var cancelBtn = document.getElementById('cancelBtn');
     cancelBtn.parentNode.removeChild(cancelBtn); // remove the btn
   });
