@@ -115,7 +115,14 @@ router.put('/:business_id', async (req, res) => {
         },
       }
     );
-    queue.customers;
+    // send sms and/or email to notify they have updated the reservation
+    var message = `${name}, our reservation for ${business.name} has been updated to`;
+    sendEmail.notify(name, email, business.name, message);
+    client.messages.create({
+      body: `This is confirmation that your reservation ${business.name} has been updated`,
+      from: '+12029463457',
+      to: phone,
+    });
     res.send('yay');
   } catch (error) {
     console.error(error.message);
