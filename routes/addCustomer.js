@@ -3,6 +3,8 @@ const router = express.Router();
 const Queue = require('../models/Queue');
 const Business = require('../models/Business');
 const sendEmail = require('../public/notifications/email.js');
+const secret = require('../config/default.js');
+const client = require('twilio')(secret.accountSid, secret.authToken);
 
 // default route when first arriving on page
 // loads business data & form for customer entry
@@ -80,9 +82,16 @@ router.post('/:business_id', async (req, res) => {
       payload.wait = wait;
       res.json(payload);
 
-      // send notifications
+      // send notifications (SMS and Email)
       // add date and time of reservation
       sendEmail.notify(name, email, business.name);
+      client.messages
+        .create({
+          body: `Thank you ${name}! Your reservation has been confirmed. You will recevive another txt when it is your turn to enter the store`,
+          from: '+12029463457',
+          to: phone,
+        })
+        .then((message) => console.log(message.sid));
     } else {
       res.status(400).send('Could not find customer queue');
     }

@@ -3,9 +3,14 @@ const baseURL = 'http://localhost:3000/addCustomer/:business_id';
 function sendForm() {
   var req = new XMLHttpRequest();
   var form = document.getElementsByTagName('form')[0];
+  var editedPhone = form.elements.phone.value,
+    editedPhone = `+1${editedPhone.substring(0, 3)}${editedPhone.substring(
+      4,
+      7
+    )}${editedPhone.substring(8)}`;
   const payload = {
     name: form.elements.name.value,
-    phone: form.elements.phone.value,
+    phone: editedPhone,
     email: form.elements.email.value,
     businessId: form.elements.id.value,
   };
