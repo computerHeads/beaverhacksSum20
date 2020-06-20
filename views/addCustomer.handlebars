@@ -1,23 +1,75 @@
-<h1>{{business.name}}</h1>
+<!--background-->
+    <style>
+    body {
+      background: linear-gradient(to right, #0062E6, #3cddec);
+    }
+    </style>
+<!--nav bar-->
+<nav class="navbar-light bg-light navbar navbar-expand-sm ">
+            <a class="navbar-brand" href="#">
+                <img src="https://png.pngtree.com/png-clipart/20190706/original/pngtree-passengers-who-queue-up-to-buy-tickets-are-free-of-elements-png-image_4373331.jpg" height="120">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
 
-<div id="status">
-    There are currently {{wait}} people waiting ahead of you {{!-- fix this  --}}
-</div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="addcustomer.html">Customer form</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#bottom">Contact Us</a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+        <!--end of nav bar -->
 
-<form>
-    <p>Add your name to the wait list</p>
-    <input name="name" type="text" required="true" placeholder="Name"><br>
-    <input type="hidden" id="country" name="country" />
-    <input id="phone" name="phone" type="tel">
-    <span id="error-msg" class="hide"></span><br>
-    <input name="email" type="email" placeholder="Email"><br>
-    <input id="id" name="id" type="hidden" value="{{business._id}}">
-    <input id="submitBtn" type="submit" value="Submit" onclick="sendForm()">
-</form>
-<div id="cancel"></div>
-{{business.address}}<br>
-{{business.phone}}<br>
-{{business.email}}<br>
+        <div class="container">
+    <div class="row ">
+      <div class="col col-lg-8 col-md-6 col-sm-4 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h1 class="text-center ">{{business.name}}</h1>
+
+            <div id="status">
+                There are currently <u>{{wait}}</u> people waiting ahead of you {{!-- fix this  --}}
+            </div>
+            <hr>
+            <!--customer form-->
+            <form>
+                <p>Fill out your information below to be added to the waitlist: </p>
+                <input name="name" type="text" required="true" placeholder="Name"><br>
+                <br>
+                <input type="hidden" id="country" name="country" />
+                <input id="phone" name="phone" type="tel">
+                <span id="error-msg" class="hide"></span><br>
+                <br>
+                <input name="email" type="email" placeholder="Email"><br>
+                <br>
+                <input id="id" name="id" type="hidden" value="{{business._id}}">
+                <input id="submitBtn" type="submit" value="Submit" onclick="sendForm()">
+                <br>
+                <br>
+            </form>
+            <div id="cancel"></div>
+            <p> Current Business:</p><hr>
+            {{business.address}}<br>
+            {{business.phone}}<br>
+            {{business.email}}<br>
+            <br>
+            <!--end of customer form-->
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.js"></script>
 {{!-- cloud style sheet from cdnj.com for country codes --}}
