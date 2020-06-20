@@ -1,14 +1,25 @@
-There are currently {{wait}} people waiting ahead of you {{!-- fix this  --}}
+<h1>{{business.name}}</h1>
+
+<div id="status">
+    There are currently {{wait}} people waiting ahead of you {{!-- fix this  --}}
+</div>
 
 <form>
     <p>Add your name to the wait list</p>
     <input name="name" type="text" required="true" placeholder="Name"><br>
-    <input name="phone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Cell Phone Number"><br>
+    <input type="hidden" id="country" name="country" />
+    <input id="phone" name="phone" type="tel">
+    <span id="error-msg" class="hide"></span><br>
     <input name="email" type="email" placeholder="Email"><br>
-    <input type="submit" value="Submit">
+    <input id="id" name="id" type="hidden" value="{{business._id}}">
+    <input id="submitBtn" type="submit" value="Submit" onclick="sendForm()">
 </form>
+<div id="cancel"></div>
 {{business.address}}<br>
 {{business.phone}}<br>
 {{business.email}}<br>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.js"></script>
+{{!-- cloud style sheet from cdnj.com for country codes --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css">
 <script src="../client/addCust.js"></script>
