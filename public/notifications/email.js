@@ -1,8 +1,8 @@
 const nodemailer = require('nodemailer');
 const secret = require('../../config/default');
 
-function notify(name, email, business, date, time) {
-  var msg = `Hello ${name}, this is a reminder of your reservation for entry to ${business} on ${date} @ ${time} please follow the link below to edit or cancel your reservation`;
+function notify(name, email, business, message) {
+  var msg = message;
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
@@ -18,7 +18,7 @@ function notify(name, email, business, date, time) {
   // create the data object that will be sent with the transporter
   let data = {
     to: email, // where the email is being sent to
-    subject: `Reservation to ${business}`, // Subject line
+    subject: `Reservation to ${business} for ${name}`, // Subject line
     text: msg, // plain text body
     html: null, // html body
   };
