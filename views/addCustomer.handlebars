@@ -30,6 +30,11 @@
         </nav>
         <!--end of nav bar -->
 
+<h1>{{business.name}}</h1>
+<div id="hiddenDiv">Your reservation has been canceled</div>
+<div id="status">
+    There are currently {{wait}} people waiting ahead of you {{!-- fix this  --}}
+</div>
         <div class="container">
     <div class="row ">
       <div class="col col-lg-8 col-md-6 col-sm-4 mx-auto">
@@ -73,5 +78,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.js"></script>
 {{!-- cloud style sheet from cdnj.com for country codes --}}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css" />
+<link rel="stylesheet" href="/css/css-add-customer.css" />
 <script src="../client/addCust.js"></script>
