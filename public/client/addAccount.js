@@ -163,7 +163,7 @@ function sendAccountForm() {
     if (response.isSignUp == 'true') {
       window.location = 'http://localhost:3000/sign-up-success';
     } else {
-      window.location = 'http://localhost:3000/confirm';
+      window.location = 'http://localhost:3000/sign-up-fail';
     }
   });
   event.preventDefault();

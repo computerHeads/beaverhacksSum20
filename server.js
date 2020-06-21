@@ -20,6 +20,7 @@ app.get('/', (req, res) => res.render('home')); // default route to app
 app.get('/login', (req, res) => res.render('login'));
 app.get('/sign-up', (req, res) => res.render('createAccount'));
 app.get('/sign-up-success', (req, res) => res.render('successCreateAccount'));
+app.get('/sign-up-fail', (req, res) => res.render('sign-up-fail'));
 app.get('/manager', (req, res) => res.render('manager'));
 app.get('/contactform', (req, res) => res.render('contactform'));
 app.get('/confirm', (req, res) => res.render('confirm'));
