@@ -17,3 +17,12 @@ function managerPage() {
   document.getElementById('managerPage').style.display = 'block';
   document.getElementById('businessPage').style.display = 'none';
 }
+
+function deleteCustomer(id, phone, email) {
+  var req = XMLHttpRequest();
+
+  req.open('POST', baseURL, true);
+  req.setRequestHeader('Content-Type', 'application/json');
+  req.send(JSON.stringify(payload));
+  req.addEventListener('load', () => {});
+}
