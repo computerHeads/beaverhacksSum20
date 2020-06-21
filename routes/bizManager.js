@@ -18,7 +18,7 @@ router.get('/:business_id', async (req, res) => {
     const payload = {};
     const biz = business.toJSON();
     const q = queue.toJSON();
-    let max = bix.settings.maxOccupancy;
+    let max = biz.settings.maxOccupancy;
     let current = 0;
     let count = q.customers.length;
     for (var i = 0; i < q.customers.length; i++) {
@@ -32,6 +32,7 @@ router.get('/:business_id', async (req, res) => {
     }
     payload.biz = biz;
     payload.customers = q.customers;
+    // console.log(payload);
     res.render('manager', payload);
   } catch (error) {
     console.error(error.message);
@@ -41,12 +42,14 @@ router.get('/:business_id', async (req, res) => {
 
 // PUT route for updating the customer list (marking customers as "entered")
 router.put('/:business_id', async (req, res) => {
-  const { customerId } = req.body;
+  const { businessId, id } = req.body;
+  console.log(req.body);
   try {
     let queue = await Queue.findOneAndUpdate(
-      { 'customers._id': customerId },
+      { 'customers._id': id },
       { $set: { 'customers.$.entered': true } }
     );
+    console.log(queue);
     if (!queue) {
       console.error(error.message);
       return res.status(400).json({ msg: 'Error: no matching customer found' });
@@ -60,22 +63,17 @@ router.put('/:business_id', async (req, res) => {
 
 // Delete route for removing customer from queue if they don't show
 router.delete('/:business_id', async (req, res) => {
-  const { customerId, name, email, phone, businessName } = req.body;
+  const { id, email, phone, name, businessId } = req.body;
   try {
-    let queue = await Queue.findOneAndUpdate(
+    await Queue.findOneAndUpdate(
       { business: businessId },
-      { $pull: { customers: { _id: customerId } } }
+      { $pull: { customers: { _id: id } } }
     );
-    if (!queue) {
-      console.error(error.message);
-      return res.status(400).json({ msg: 'Error: no matching customer found' });
-    }
     res.send(true);
-    const message = `${name}, thank you for visiting ${business.name}. We hope to see you again!`;
-    sendEmail.notify(name, email, businessName, message);
+    const message = `${name}, thank you for visiting. We hope to see you again!`;
+    sendEmail.notify(name, email, message);
     sendSMS.send(phone, message);
   } catch (error) {
-    console.error(error.message);
     res.status(500).send('Server error');
   }
 });

@@ -1,8 +1,5 @@
-document.addEventListener('DOMContentLoaded', hideNav);
+const baseURL = 'http://localhost:3000/manager/:business_id';
 
-function hideNav() {
-  document.getElementsByTagName('nav')[0].setAttribute('hidden', 'true');
-}
 function openNav() {
   document.getElementById('mySidenav').style.width = '250px';
 }
@@ -18,11 +15,47 @@ function managerPage() {
   document.getElementById('businessPage').style.display = 'none';
 }
 
-function deleteCustomer(id, phone, email) {
-  var req = XMLHttpRequest();
-
-  req.open('POST', baseURL, true);
+function deleteCustomer(id, phone, email, name) {
+  var req = new XMLHttpRequest();
+  var businessId = document.getElementById('bzId').value;
+  var payload = {};
+  payload.id = id;
+  payload.phone = phone;
+  payload.email = email;
+  payload.name = name;
+  payload.businessId = businessId;
+  req.open('DELETE', baseURL, true);
   req.setRequestHeader('Content-Type', 'application/json');
   req.send(JSON.stringify(payload));
-  req.addEventListener('load', () => {});
+  req.addEventListener('load', () => {
+    if (req.response === 'true') {
+      var customer = document.getElementById(id);
+      customer.parentElement.removeChild(customer);
+    }
+  });
+  event.preventDefault();
+}
+
+function markCustomer(id) {
+  var req = new XMLHttpRequest();
+  var businessId = document.getElementById('bzId').value;
+  var payload = {};
+  payload.id = id;
+  payload.businessId = businessId;
+  console.log(payload);
+  req.open('PUT', baseURL, true);
+  req.setRequestHeader('Content-Type', 'application/json');
+  req.send(JSON.stringify(payload));
+  req.addEventListener('load', () => {
+    let curCustomer;
+    if (req.response === 'true') {
+      var customer = document.getElementById(id);
+      curCustomer = customer;
+      customer.parentElement.removeChild(customer);
+    }
+    curCustomer.className = 'curCust';
+    var list = document.getElementById('currentList');
+    list.appendChild(curCustomer);
+  });
+  event.preventDefault();
 }
