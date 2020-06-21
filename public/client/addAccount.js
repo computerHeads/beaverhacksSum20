@@ -57,7 +57,7 @@ function sendAccountForm() {
   req.send(JSON.stringify(payload));
   req.addEventListener('load', () => {
     var response = JSON.parse(req.response);
-    console.log("client/addAccount.js works!")
   });
+  
   event.preventDefault();
 }
