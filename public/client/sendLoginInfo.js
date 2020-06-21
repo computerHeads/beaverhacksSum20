@@ -5,7 +5,9 @@ function sendLoginForm() {
 
   var email = document.getElementById("inputEmail");
   var password = document.getElementById("inputPassword");
-  
+  var wrongEmail = document.querySelector('#email-error-msg');
+  var wrongPwd = document.querySelector('#pwd-error-msg')
+
   const payload = {
     email: email.value,
     password: password.value,
@@ -18,11 +20,22 @@ function sendLoginForm() {
     var response = JSON.parse(req.response);
     if (response.isLogin == "true") {
       window.location = "http://localhost:3000/manager/" + response.business_id;
+    } else if (response.isEmail == "false" && response.isPwd == "false") {
+      wrongPwd.classList.remove('hide');
+      wrongEmail.classList.remove('hide');
+      wrongEmail.innerHTML = "Wrong Email";
+      wrongPwd.innerHTML = "Wrong Password";
     } else if (response.isEmail == "false") {
-      console.log("Email is wrong");
+      // wrong email input
+      wrongEmail.classList.remove('hide');
+      wrongPwd.classList.add('hide');
+      wrongEmail.innerHTML = "Wrong Email Address";
     } else if (response.isPwd == "false") {
-      console.log("Password is wrong");
-    }
+      // wrong password input
+      wrongPwd.classList.remove('hide');
+      wrongEmail.classList.add('hide');
+      wrongPwd.innerHTML = "Wrong Password";
+    } 
   });
   event.preventDefault();
 }
