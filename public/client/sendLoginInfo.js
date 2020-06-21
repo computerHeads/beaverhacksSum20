@@ -16,6 +16,10 @@ function sendLoginForm() {
   req.send(JSON.stringify(payload));
   req.addEventListener('load', () => {
     var response = JSON.parse(req.response);
+    console.log(response);
+    if (response.isLogin == "true") {
+      window.location = "http://localhost:3000/manager";
+    } 
   });
   event.preventDefault();
 }

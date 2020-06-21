@@ -5,16 +5,16 @@ const Business = require('../models/Business');
 router.post('/login', async (req, res) => {
     Business.findOne({email: req.body.email}, (err, business) => {
         if (!business) {
-            return res.json({ msg: "Failed to LogIn. No user using that email!" });
+            return res.json({ isEmail: "false" });
         }
         business.comparePassword(req.body.password, (err, isMatch) => {
             if (!isMatch) {
-                return res.json({ msg: "Failed to LogIn. Wrong Password!"});
+                return res.json({ isPwd: "false"});
             }
             business.createToken((err, business) => {
                 if (err) return res.status(400).send(err);
                 res.cookie("qu_auth", business.token).status(200).json({
-                    msg: "Success to LogIn!"
+                    isLogin: "true"
                 });
             });
         });
