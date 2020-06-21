@@ -136,3 +136,10 @@
 .iti.iti--allow-dropdown {
   width: 100%;
 }
+
+#error-msg {
+  color: red;
+  margin: 20px;
+  font-weight:light; 
+  padding-top: 10px;
+}
