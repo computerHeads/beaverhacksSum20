@@ -1,10 +1,26 @@
+.card-img-left {
+  width: 45%;
+  /* Link to your background image using in the property below! */
+  background: scroll center url('../css/img/clouds_sea.jpg');
+  background-size: cover;
+}
 
-    .card-img-left {
-        width: 45%;
-        /* Link to your background image using in the property below! */
-        background: scroll center url('../css/img/clouds_sea.jpg');
-        background-size: cover;
-    }
+.cardNew {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border-radius: 0.25rem;
+}
 
-
-
+.card-img-left {
+  height: 800px;
+}
+.col.text-center {
+  margin-top: 200px;
+}

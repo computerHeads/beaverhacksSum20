@@ -106,7 +106,8 @@
                             <button class="x"
                                 onclick="deleteCustomer('{{this._id}}','{{this.phone}}','{{this.email}}','{{this.name}}')">X</button>
                             <span>{{this.name}}</span>
-                            <button>notify</button>
+                            <button
+                                onclick="notifyCustomer('{{this.id}}','{{this.phone}}','{{this.email}}','{{this.name}}'')">notify</button>
                             <button class=" check" onclick="markCustomer('{{this._id}}')">&check;</button>
                         </li>
                         {{/if}}
@@ -132,6 +133,20 @@
             </div>
         </div>
     </div>
+</div>
+
+<div id="copyLink">
+    Link to your business add customer portal
+    <input size="60" type="text" value="http://localhost:3000/addCustomer/{{biz._id}}" id="businessLink">
+    <button onclick="copy()">&#x2398;copy</button>
+    <script>
+        function copy() {
+            var copyText = document.getElementById("businessLink");
+            copyText.select();
+            copyText.setSelectionRange(0, 200)
+            document.execCommand("copy");
+        }
+    </script>
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

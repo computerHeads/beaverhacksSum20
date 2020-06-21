@@ -65,3 +65,12 @@ function markCustomer(id) {
   });
   event.preventDefault();
 }
+
+function notifyCustomer(id, phone, email, name) {
+  var req = new XMLHttpRequest();
+  var payload = {};
+  payload.id = id;
+  payload.phone = phone;
+  payload.email = email;
+  payload.name = name;
+}

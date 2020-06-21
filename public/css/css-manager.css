@@ -165,3 +165,10 @@ body {
   overflow-x: hidden;
   margin: auto;
 } */
+
+#copyLink {
+  text-align: center;
+  color: white;
+  margin-bottom: 100px;
+  margin-top: 30px;
+}

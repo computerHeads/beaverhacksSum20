@@ -38,6 +38,7 @@ router.get('/:business_id', Auth, async (req, res) => {
     payload.current = current;
     payload.biz = biz;
     payload.customers = q.customers;
+    payload.logout = true;
     // console.log(payload);
     res.render('manager', payload);
   } catch (error) {
@@ -83,6 +84,7 @@ router.put('/:business_id', async (req, res) => {
 // Delete route for removing customer from queue if they don't show
 router.delete('/:business_id', async (req, res) => {
   const { id, email, phone, name, businessId } = req.body;
+  console.log(req.body);
   try {
     await Queue.findOneAndUpdate(
       { business: businessId },
