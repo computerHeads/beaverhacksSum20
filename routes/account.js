@@ -7,7 +7,7 @@ router.post('/create-account', async (req, res) => {
     business.save((error, businessInfo) => {
         if (error) return res.json({ msg: 'Error: Create Account Page Not Found'});
         return res.status(200).json({
-            msg: 'Sent to DB Successfully. Check!' 
+            isSignUp: "true"
         }); 
     });
 });
