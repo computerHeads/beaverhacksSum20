@@ -1,8 +1,4 @@
-document.addEventListener('DOMContentLoaded', hideNav);
 
-function hideNav() {
-  document.getElementsByTagName('nav')[0].setAttribute('hidden', 'true');
-}
 function openNav() {
   document.getElementById('mySidenav').style.width = '250px';
 }
