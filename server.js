@@ -23,6 +23,7 @@ app.get('/sign-up-success', (req, res) => res.render('successCreateAccount'));
 app.get('/manager', (req, res) => res.render('manager'));
 app.get('/contactform', (req, res) => res.render('contactform'));
 app.get('/confirm', (req, res) => res.render('confirm'));
+app.get('/businesspage', (req, res) => res.render('businesspage'));
 
 app.use('/business', require('./routes/account'));
 app.use('/business', require('./routes/login'));

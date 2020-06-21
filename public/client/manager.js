@@ -47,15 +47,19 @@ function markCustomer(id) {
   req.setRequestHeader('Content-Type', 'application/json');
   req.send(JSON.stringify(payload));
   req.addEventListener('load', () => {
-    let curCustomer;
-    if (req.response === 'true') {
-      var customer = document.getElementById(id);
-      curCustomer = customer;
-      customer.parentElement.removeChild(customer);
-    }
+    console.log(req.response);
+    const { current, wait, tally } = JSON.parse(req.response);
+    console.log(current, wait, tally);
+    var customer = document.getElementById(id);
+    let curCustomer = customer;
+    customer.parentElement.removeChild(customer);
+
     curCustomer.className = 'curCust';
     var list = document.getElementById('currentList');
     list.appendChild(curCustomer);
+    document.getElementById('cur').value = current;
+    document.getElementById('wait').value = wait;
+    document.getElementById('tally').value = tally;
   });
   event.preventDefault();
 }

@@ -6,6 +6,10 @@ const QueueSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'business',
   },
+  tally: {
+    type: Number,
+    default: 0,
+  },
   customers: [
     {
       name: {
@@ -22,6 +26,10 @@ const QueueSchema = new mongoose.Schema({
       entered: {
         type: Boolean,
         default: false,
+      },
+      waiting: {
+        type: Boolean,
+        default: true,
       },
       date: {
         type: Date,
