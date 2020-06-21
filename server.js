@@ -21,7 +21,7 @@ app.get('/login', (req, res) => res.render('login'));
 app.get('/sign-up', (req, res) => res.render('createAccount'));
 app.get('/sign-up-success', (req, res) => res.render('successCreateAccount'));
 app.get('/manager', (req, res) => res.render('manager'));
-app.get('/businesspage', (req, res) => res.render('businesspage'));
+app.get('/contactform', (req, res) => res.render('contactform'));
 
 app.use('/business', require('./routes/account'));
 app.use('/business', require('./routes/login'));
@@ -29,5 +29,7 @@ app.use('/business', require('./routes/auth'));
 app.use('/business', require('./routes/logout'));
 app.use('/addCustomer', require('./routes/addCustomer'));
 app.use('/business', require('./routes/businessManager'));
+app.use('/addCustomer', require('./routes/addCustomer'));
+app.get('/businesspage', (req, res) => res.render('businesspage'));
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
