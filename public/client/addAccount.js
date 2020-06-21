@@ -57,7 +57,9 @@ function sendAccountForm() {
   req.send(JSON.stringify(payload));
   req.addEventListener('load', () => {
     var response = JSON.parse(req.response);
+    if (response.isSignUp == "true") {
+      window.location = "http://localhost:3000/sign-up-success";
+    }
   });
-  
   event.preventDefault();
 }
