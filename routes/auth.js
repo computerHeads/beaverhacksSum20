@@ -10,9 +10,11 @@ router.get('/auth', Auth, (req, res) => {
         _id: req.business._id,
         isAuth: true,
         name: req.business.name,
-        address: req.business.address,
         email: req.business.email,
-        phone: req.business.phone,
+        settings: {
+            businessName: req.business.settings.businessName,
+            address: req.business.settings.address,
+        },
     })
 })
 
