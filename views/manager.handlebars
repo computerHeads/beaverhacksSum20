@@ -1,163 +1,172 @@
 <link rel="stylesheet" href="/css/css-manager.css" />
 
-<!--container is for the whole thing-->
+<body>
+    <div class="container">
+        <h1 class="my-5 text-center text-white">Manager Portal</h1>
+        <hr style="width:40%; background-color:#33aeff;">
+        <div class="row">
+            <div class="col mx-auto">
+                <div class="card card-signin flex-row my-5">
+                    <div class="card-img-left d-none d-md-flex">
+                        <!-- Background image for card set in CSS! -->
+                    </div>
 
-<br><br><br>
-<div id="businessPage" class="container">
-    <h1 class="text-white text-center">Manager Portal</h1>
-
-    <br>
-    <!--row is also for everything-->
-    <div class="row">
-        <div class="col-lg-7 col-xl-9 mx-auto bg-light" style="border-radius: 2%;">
-            <!--this is the final row-->
-            <div id="biz" class="row">
-                <!--this is each indiviual column: first columns aka left side-->
-                <div class="col text-center bizInfo">
-                    <br><br>
-                    <h3>{{biz.settings.businessName}}</h3>
-                    <hr><br>
-                    <a>Open: <input class="settings" type="time" value="{{biz.settings.open}}"></a>
-                    <br><br>
-                    <a>Close: <input class="settings" type="time" value="{{biz.settings.close}}"></input></a>
-                    <br><br>
-                    <hr><br>
-                    <a>Maximum Occupancy:
-                        <input class="settings" name="max" type="number" value="{{biz.settings.maxOccupancy}}"></a>
-                    tables/people<br>
-                    <br>
-                    <hr><br>
-                    <a>Each customer data expires in: <input class="settings" name="current" type="number" value="">
-                        Hours</a>
-                    <br><br>
-                    <hr><br>
-                    <!--buttons-->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm">
-                        Confirm Changes
-                    </button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#stop">
-                        Stop Wait List
-                    </button>
-
-                    <!-- code for the pop up; this one is for the confirm changes button-->
-                    <div class="modal fade" id="confirm" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Thanks!</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                    <div class="card-body">
+                        <h3 class="my-5">{{biz.settings.businessName}}</h3>
+                        <p>Click Below to manage your store:</p>
+                        <p>
+                            {{!-- Here is the buttons at the top --}}
+                            <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample"
+                                role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Expand/Collapse Store Hours
+                            </a>
+                            <button class="btn btn-primary btn-lg" type="button" data-toggle="collapse"
+                                data-target="#wait" aria-expanded="false" aria-controls="collapseExample">
+                                Expand/Collapse Wait List
+                            </button>
+                        </p>
+                        {{!-- first hidden page: stores hours --}}
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                                <div class="jumbotron jumbotron-fluid boxx">
+                                    <h3 class="text-center">{{biz.settings.businessName}}</h3>
                                 </div>
-                                <div class="modal-body">
-                                    We will update your page!
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                <hr><br>
+                                <p>Adjust your open and closing times below:</p>
+                                <a>Open: <input style="border-radius: 10%" class="settings insidebox" type="time"
+                                        value="{{biz.settings.open}}"></a>
+                                <br><br>
+                                <a>Close: <input class="settings insidebox" type="time"
+                                        value="{{biz.settings.close}}"></input></a>
+                                <br><br>
+                                <hr><br>
+                                <p>Adjust your maximum tables/people in your business:</p>
+                                <a>Maximum(table/people):
+                                    <input class="settings insidebox" name="max" type="number"
+                                        value="{{biz.settings.maxOccupancy}}"></a><br>
+                                <br>
+                                <hr><br>
 
+                                <p>Adjust the time your customer's data will expire:</p>
+                                <a>Data expires in: <input class="settings insidebox" name="current" type="number"
+                                        value="">
+                                    Hours</a>
+                                <br><br>
+                                <hr><br>
+                                <!--buttons-->
+                                <button type="button" class="btn btn-primary text-center insidebox" data-toggle="modal"
+                                    data-target="#confirm">
+                                    Confirm Changes
+                                </button>
+                                <br>
+                                <button type="button" class="btn btn-primary text-center insidebox" data-toggle="modal"
+                                    data-target="#stop">
+                                    Stop Wait List
+                                </button>
+                            </div>
+                        </div>
+                        <div class="collapse" id="wait">
+                            <div class="card card-body">
+                                <div class="jumbotron jumbotron-fluid boxx">
+                                    <h3 class="text-center">Manage Your Waitlist Below</h3>
+                                </div>
+                                <hr>
+                                <div id="nums">
+                                    <label for="current">Current:</label><input id="cur" class="numCust insidebox"
+                                        name="current" type="number" value={{current}}>
+                                    <label for="wait">Waiting:</label><input id="wait" class="numCust insidebox"
+                                        name="wait" type="number" value={{wait}}>
+                                    <label for="sent">Daily Total:</label><input id="tally" class="numCust insidebox"
+                                        name="tally" type="number" value={{tally}}>
+                                </div>
+                                <hr>
+                                <input id="bzId" value="{{biz._id}}" hidden="true">
+                                <h5>These are your customers in line:</h5>
+                                <hr>
+                                <ol>
+                                    {{#each customers}}
+                                    {{#if this.waiting}}
+                                    <li class="custList" id="{{this._id}}">
+                                        <button class="x"
+                                            onclick="deleteCustomer('{{this._id}}','{{this.phone}}','{{this.email}}','{{this.name}}')">X</button>
+                                        <span>{{this.name}}</span>
+                                        <button>notify</button>
+                                        <button class=" check" onclick="markCustomer('{{this._id}}')">&check;</button>
+                                    </li>
+                                    {{/if}}
+                                    {{/each}}
+                                </ol>
+                                <br>
+                                <hr>
+                                <br><br>
+                                <div id=" scrollBox">
+                                    <ol id="currentList">
+                                        {{#each customers}}
+                                        {{#if this.entered}}
+                                        <li class="custList" id="{{this._id}}">
+                                            <button class="x"
+                                                onclick="deleteCustomer('{{this._id}}','{{this.phone}}','{{this.email}}','{{this.name}}')">X</button>
+                                            <span>{{this.name}}</span>
+                                        </li>
+                                        {{/if}}
+                                        {{/each}}
+                                    </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--this is for the stop waitlist button-->
-                    <div class="modal fade" id="stop" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Thanks!</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    We will stop the Waitlist!
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br><br><br>
                 </div>
-                <!--this is the right column-->
-                <div class="col bg-white" style="border-radius:3%">
-                    <br><br>
-                    <h5>Manage Your Waitlist</h5>
-                    <hr>
-                    <div id="nums">
-                        <label for="current">Current:</label><input id="cur" class="numCust" name="current"
-                            type="number" value={{current}}>
-                        <label for="wait">Waiting:</label><input id="wait" class="numCust" name="wait" type="number"
-                            value={{wait}}>
-                        <label for="sent">Daily Total:</label><input id="tally" class="numCust" name="tally"
-                            type="number" value={{tally}}>
+                <!-- code for the pop up; this one is for the confirm changes button-->
+                <div class="modal fade" id="confirm" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Thanks!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                We will update your page!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+
+                            </div>
+                        </div>
                     </div>
-                    <hr>
-                    <input id="bzId" value="{{biz._id}}" hidden="true">
-                    <h5>These are your customers in line:</h5>
-                    <hr>
-                    <ol>
-                        {{#each customers}}
-                        {{#if this.waiting}}
-                        <li class="custList" id="{{this._id}}">
-                            <button class="x"
-                                onclick="deleteCustomer('{{this._id}}','{{this.phone}}','{{this.email}}','{{this.name}}')">X</button>
-                            <span>{{this.name}}</span>
-                            <button
-                                onclick="notifyCustomer('{{this._id}}','{{this.phone}}','{{this.email}}','{{this.name}}')">notify</button>
-                            <button class=" check" onclick="markCustomer('{{this._id}}')">&check;</button>
-                        </li>
-                        {{/if}}
-                        {{/each}}
-                    </ol>
-                    <br>
-                    <hr>
-                    <br><br>
-                    <div id=" scrollBox">
-                        <ol id="currentList">
-                            {{#each customers}}
-                            {{#if this.entered}}
-                            <li class="custList" id="{{this._id}}">
-                                <button class="x"
-                                    onclick="deleteCustomer('{{this._id}}','{{this.phone}}','{{this.email}}','{{this.name}}')">X</button>
-                                <span>{{this.name}}</span>
-                            </li>
-                            {{/if}}
-                            {{/each}}
-                        </ol>
+                </div>
+                <!--this is for the stop waitlist button-->
+                <div class="modal fade" id="stop" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Thanks!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                We will stop the Waitlist!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 
-<div id="copyLink">
-    Link to your business add customer portal
-    <input size="60" type="text" value="http://localhost:3000/addCustomer/{{biz._id}}" id="businessLink">
-    <button onclick="copy()">&#x2398;copy</button>
-    <script>
-        function copy() {
-            var copyText = document.getElementById("businessLink");
-            copyText.select();
-            copyText.setSelectionRange(0, 200)
-            document.execCommand("copy");
-        }
-    </script>
-</div>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-    crossorigin="anonymous"></script>
-<script src="/client/manager.js"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
+</body>
