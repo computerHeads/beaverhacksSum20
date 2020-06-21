@@ -49,15 +49,18 @@ function markCustomer(id) {
   req.addEventListener('load', () => {
     console.log(req.response);
     const { current, wait, tally } = JSON.parse(req.response);
-    console.log(current, wait, tally);
     var customer = document.getElementById(id);
     let curCustomer = customer;
     customer.parentElement.removeChild(customer);
 
     curCustomer.className = 'curCust';
+    var arr = curCustomer.children; // remove the right side btns
+    curCustomer.removeChild(arr[2]);
+    curCustomer.removeChild(arr[2]);
+
     var list = document.getElementById('currentList');
     list.appendChild(curCustomer);
-    document.getElementById('cur').value = current;
+    document.getElementById('cur').value = current; // append the customer numbers
     document.getElementById('wait').value = wait;
     document.getElementById('tally').value = tally;
   });

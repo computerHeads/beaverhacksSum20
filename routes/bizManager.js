@@ -14,8 +14,13 @@ router.get('/:business_id', async (req, res) => {
     if (!business) {
       return res.status(400).json({ msg: 'business not found' });
     }
-    let queue = await Queue.findOne({ business: req.params.business_id });
     const payload = {};
+    let queue = await Queue.findOne({ business: req.params.business_id });
+    if (!queue) {
+      payload.business = req.params.business_id;
+      queue = new Queue(payload);
+      await queue.save();
+    }
     const biz = business.toJSON();
     const q = queue.toJSON();
     let max = biz.settings.maxOccupancy;
@@ -64,9 +69,9 @@ router.put('/:business_id', async (req, res) => {
     }
     var wait = total - current;
     var payload = {};
-    payload.current = current;
-    payload.wait = wait;
-    payload.tally = queue.tally;
+    payload.current = current + 1;
+    payload.wait = wait - 1;
+    payload.tally = queue.tally + 1;
     res.json(payload);
   } catch (error) {
     console.error(error.message);
