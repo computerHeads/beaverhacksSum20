@@ -19,7 +19,11 @@ function sendLoginForm() {
     console.log(response);
     if (response.isLogin == "true") {
       window.location = "http://localhost:3000/manager";
-    } 
+    } else if (response.isEmail == "false") {
+      console.log("Email is wrong");
+    } else if (response.isPwd == "false") {
+      console.log("Password is wrong");
+    }
   });
   event.preventDefault();
 }
