@@ -134,9 +134,21 @@
                         <label for="sent">Sent:</label><input class="numCust" name="sent" type="number" value="">
                     </div>
                     <hr>
-                    {{#each customers}}
-                    <li class="custList">{{this}}</li>
-                    {{/each}}
+                    <table>
+                        <tbody>
+                            {{#each customers}}
+                            <ol class="custList">
+                                <tr>
+                                    <td><button
+                                            onclick="deleteCustomer({{this.id}}, {{this.phone}}, {{this.email}})">[x]</button>
+                                    </td>
+                                    <td>{{this.name}}</td>
+                                    <td><button onclick="markCustomer({{this.id}})">&check;</button></td>
+                                </tr>
+                            </ol>
+                            {{/each}}
+                        </tbody>
+                    </table>
                     <br><br>
                 </div>
             </div>
