@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000/business/login';
+const loginURL = 'http://localhost:3000/business/login';
 
 function sendLoginForm() {
   var req = new XMLHttpRequest();
@@ -11,7 +11,7 @@ function sendLoginForm() {
     password: password.value,
   };
   
-  req.open('POST', baseURL, true);
+  req.open('POST', loginURL, true);
   req.setRequestHeader('Content-Type', 'application/json');
   req.send(JSON.stringify(payload));
   req.addEventListener('load', () => {
