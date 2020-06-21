@@ -58,14 +58,15 @@ function sendForm() {
     var response = JSON.parse(req.response);
     document.getElementById('hiddenDiv').style.display = 'none';
     var submitBtn = document.getElementById('submitBtn');
-    submitBtn.value = 'Edit reservation';
+    submitBtn.innerHTML = 'Edit reservation';
     submitBtn.setAttribute('onclick', `editCustomer('${response.customerId}')`);
 
-    var cancel = document.createElement('button');
-    cancel.id = 'cancelBtn';
-    cancel.innerHTML = 'Cancel reservation';
+    var cancel = document.getElementById('cancelBtn');
+    cancel.style.display = 'block';
+    cancel.style.borderRadius = '25px';
+    cancel.style.backgroundColor = 'red';
     cancel.setAttribute('onclick', `cancel('${response.customerId}')`);
-    document.getElementById('cancel').appendChild(cancel); // add to document
+    // document.getElementById('cancel').appendChild(cancel); // add to document
   });
   event.preventDefault();
 }
@@ -105,7 +106,7 @@ function cancel(customerId) {
   req.send(JSON.stringify(payload));
   req.addEventListener('load', () => {
     var submitBtn = document.getElementById('submitBtn'); // set btn back to original submit
-    submitBtn.value = 'Submit';
+    submitBtn.innerHTML = 'Submit';
     submitBtn.setAttribute('onclick', 'sendForm()');
     document.getElementsByTagName('form')[0].reset();
     document.getElementById('hiddenDiv').style.display = 'inline-block'; // show the message that they have been deleted

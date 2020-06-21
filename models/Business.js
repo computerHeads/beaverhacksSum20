@@ -9,42 +9,42 @@ const BusinessSchema = new mongoose.Schema({
   name: {
     type: String,
     maxlength: 50,
-    required: true,
+    // required: true,
     unique: true,
   },
   address: {
     type: String,
-    required: true,
+    // required: true,
     unique: true,
   },
   email: {
     type: String,
     trim: true,
     unique: true,
-    required: true,
+    // required: true,
   },
   phone: {
     type: Number,
-    required: true,
+    // required: true,
     unique: true,
   },
   password: {
     type: String,
-    required: true,
+    // required: true,
     minlength: 4,
   },
   settings: {
     open: {
       type: Number,
-      required: true,
+      // required: true,
     },
     close: {
       type: Number,
-      required: true,
+      // required: true,
     },
     maxOccupancy: {
       type: Number,
-      required: true,
+      // required: true,
     },
   },
   token: {
