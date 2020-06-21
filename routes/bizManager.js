@@ -16,9 +16,23 @@ router.get('/:business_id', async (req, res) => {
     }
     let queue = await Queue.findOne({ business: req.params.business_id });
     const payload = {};
-    payload.business = business;
-    payload.customers = queue.customers;
-    res.json(payload);
+    const biz = business.toJSON();
+    const q = queue.toJSON();
+    let max = bix.settings.maxOccupancy;
+    let current = 0;
+    let count = q.customers.length;
+    for (var i = 0; i < q.customers.length; i++) {
+      if (q.customers[i].entered === true) {
+        current++;
+      }
+    }
+    let wait = count - current;
+    if (wait < max) {
+      wait = 0;
+    }
+    payload.biz = biz;
+    payload.customers = q.customers;
+    res.render('manager', payload);
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');

@@ -107,32 +107,44 @@
     <div class="row">
         <div class="col-lg-10 col-xl-9 mx-auto bg-light" style="border-radius: 2%;">
             <!--this is the final row-->
-            <div class="row">
+            <div id="biz" class="row">
                 <!--this is each indiviual column: first columns aka left side-->
                 <div class="col">
                     <br><br>
-                    <h3>Your Restaurant Settings</p>
-                        <hr>
-                        <p>Open:</p>
-                        <p>Close</p>
-                        <hr>
-                        <p>Maximum:</p>
-                        <p>(table/people)</p>
-                        <hr>
-                        <p>Each customer data expires in: </p>
-                        <hr>
-                        <p>Stop Waitlist</p>
-                        <br><br>
+                    <h3>{{biz.settings.businessName}}</h3>
+                    <hr>
+                    <div>Open: {{biz.settings.open}}</div>
+                    <div>Close: {{biz.settings.close}}</div>
+                    <hr>
+                    <div>Maximum(table/people): {{biz.settings.maxOccupancy}}</div>
+                    <hr>
+                    <div>Each customer data expires in: </div>
+                    <hr>
+                    <button>Stop Waitlist</button>
+                    <br><br>
                 </div>
                 <!--this is the right column-->
                 <div class="col bg-white" style="border-radius:2%">
                     <br><br>
                     <h5 class="text-center">Manage Your Waitlist</h5>
                     <hr>
-                    <p> Current: Wait: Sent:</p>
+                    <div id="nums">
+                        <label for="current">Current:</label><input class="numCust" name="current" type="number"
+                            value="">
+                        <label for="wait">Wait:</label><input class="numCust" name="wait" type="number" value="">
+                        <label for="sent">Sent:</label><input class="numCust" name="sent" type="number" value="">
+                    </div>
                     <hr>
-                    <p> Name one</p>
-                    <p> Name two</p>
+                    <ol>
+                        {{#each customers}}
+                        <li class="custList">
+                            <button class="x"
+                                onclick=`deleteCustomer({{this._id}},{{this.phone}},{{this.email}})`>X</button>
+                            <span>{{this.name}}</span>
+                            <button class="check" onclick=`markCustomer({{this._id}})`>&check;</button>
+                        </li>
+                        {{/each}}
+                    </ol>
                     <br><br>
                 </div>
             </div>
