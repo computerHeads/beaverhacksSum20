@@ -39,7 +39,7 @@ const BusinessSchema = new mongoose.Schema({
       type: Boolean,
     },
     phone: {
-      type: Number,
+      type: String,
       required: true,
       unique: true,
     },
