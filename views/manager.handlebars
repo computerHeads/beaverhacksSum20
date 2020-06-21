@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="/css/css-manager.css" />
 
+<!--container is for the whole thing-->
+
 <br><br><br>
 <div id="businessPage" class="container">
     <h1 class="text-white text-center">Manager Portal</h1>
@@ -15,16 +17,16 @@
                     <br><br>
                     <h3>{{biz.settings.businessName}}</h3>
                     <hr><br>
-                    <a>Open: {{biz.settings.open}} <input type="time"></input></a>
+                    <a>Open: <input class="settings" type="time" value="{{biz.settings.open}}"></a>
                     <br><br>
-                    <a>Close: {{biz.settings.close}}<input type="time"></input></a>
+                    <a>Close: <input class="settings" type="time" value="{{biz.settings.close}}"></input></a>
                     <br><br>
                     <hr><br>
-                    <a>Maximum(table/people): {{biz.settings.maxOccupancy}}
-                        <input class="numCust" name="current" type="number" value=""></a><br>
+                    <a>Maximum(table/people):
+                        <input class="settings" name="max" type="number" value="{{biz.settings.maxOccupancy}}"></a><br>
                     <br>
                     <hr><br>
-                    <a>Each customer data expires in: <input class="numCust" name="current" type="number" value="">
+                    <a>Each customer data expires in: <input class="settings" name="current" type="number" value="">
                         Hours</a>
                     <br><br>
                     <hr><br>
@@ -81,46 +83,56 @@
                     <br><br><br>
                 </div>
                 <!--this is the right column-->
-                <div class="col bg-white" style="border-radius:2%">
+                <div class="col bg-white" style="border-radius:3%">
                     <br><br>
                     <h5>Manage Your Waitlist</h5>
                     <hr>
                     <div id="nums">
-                        <label for="current">Current:</label><input class="numCust" name="current" type="number"
-                            value="">
-                        <label for="wait">Wait:</label><input class="numCust" name="wait" type="number" value="">
-                        <label for="sent">Sent:</label><input class="numCust" name="sent" type="number" value="">
+                        <label for="current">Current:</label><input id="cur" class="numCust" name="current"
+                            type="number" value={{current}}>
+                        <label for="wait">Waiting:</label><input id="wait" class="numCust" name="wait" type="number"
+                            value={{wait}}>
+                        <label for="sent">Daily Total:</label><input id="tally" class="numCust" name="tally"
+                            type="number" value={{tally}}>
                     </div>
                     <hr>
+                    <input id="bzId" value="{{biz._id}}" hidden="true">
                     <h5>These are your customers in line:</h5>
                     <hr>
                     <ol>
                         {{#each customers}}
-                        <li class="custList">
-                            <button class="x btn-primary"
-                                onclick=`deleteCustomer({{this._id}},{{this.phone}},{{this.email}})`>X</button>
+                        {{#if this.waiting}}
+                        <li class="custList" id="{{this._id}}">
+                            <button class="x"
+                                onclick="deleteCustomer('{{this._id}}','{{this.phone}}','{{this.email}}','{{this.name}}')">X</button>
                             <span>{{this.name}}</span>
-                            <button class="check btn-primary" onclick=`markCustomer({{this._id}})`>&check;</button>
+                            <button>notify</button>
+                            <button class=" check" onclick="markCustomer('{{this._id}}')">&check;</button>
                         </li>
+                        {{/if}}
                         {{/each}}
                     </ol>
-                    <br><br><br>
+                    <br>
                     <hr>
-                    <p>'X' will delete them off the list</p>
                     <br><br>
+                    <div id=" scrollBox">
+                        <ol id="currentList">
+                            {{#each customers}}
+                            {{#if this.entered}}
+                            <li class="custList" id="{{this._id}}">
+                                <button class="x"
+                                    onclick="deleteCustomer('{{this._id}}','{{this.phone}}','{{this.email}}','{{this.name}}')">X</button>
+                                <span>{{this.name}}</span>
+                            </li>
+                            {{/if}}
+                            {{/each}}
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

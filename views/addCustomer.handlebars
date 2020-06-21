@@ -11,7 +11,7 @@
                         <div class="col col-lg-10 col-md-8 col-sm-6 mx-auto">
                             <div class="card-body">
                                 <br><br>
-                                <h1 class="text-center ">{{business.name}}</h1>
+                                <h1 class="text-center ">{{business.settings.businessName}}</h1>
                                 <div id="status">
                                     <div id="hiddenDiv">
                                         <h2>Your reservation has been canceled</h2>
@@ -35,10 +35,10 @@
                                 </form>
                                 <button id="cancelBtn" class="btn btn-lg btn-primary btn-block text-uppercase"
                                     onclick="cancel()" style="display:none;">Cancel reservation</button>
-                                <p> Current Business:</p>
+                                <p>Business contact:</p>
                                 <hr>
-                                {{business.address}}<br>
-                                {{business.phone}}<br>
+                                {{business.settings.address}}<br>
+                                {{business.settings.phone}}<br>
                                 {{business.email}}<br>
                                 <br><br>
                                 <!--end of customer form-->
@@ -49,10 +49,10 @@
             </div>
         </div>
     </div>
-</body>
+    </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.js"></script>
-{{!-- cloud style sheet from cdnj.com for country codes --}}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css" />
-<link rel="stylesheet" href="/css/css-add-customer.css" />
-<script src="../client/addCust.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.js"></script>
+    {{!-- cloud style sheet from cdnj.com for country codes --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css" />
+    <link rel="stylesheet" href="/css/css-add-customer.css" />
+    <script src="../client/addCust.js"></script>

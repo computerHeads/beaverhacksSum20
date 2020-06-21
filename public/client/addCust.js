@@ -111,7 +111,7 @@ function cancel(customerId) {
     document.getElementsByTagName('form')[0].reset();
     document.getElementById('hiddenDiv').style.display = 'block'; // show the message that they have been deleted
     var cancelBtn = document.getElementById('cancelBtn');
-    cancelBtn.style.display = 'hidden';
+    cancelBtn.style.display = 'none';
   });
   event.preventDefault();
 }
