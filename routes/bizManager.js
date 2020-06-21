@@ -38,6 +38,7 @@ router.get('/:business_id', Auth, async (req, res) => {
     payload.current = current;
     payload.biz = biz;
     payload.customers = q.customers;
+    payload.logout = true;
     // console.log(payload);
     res.render('manager', payload);
   } catch (error) {
@@ -48,32 +49,49 @@ router.get('/:business_id', Auth, async (req, res) => {
 
 // PUT route for updating the customer list (marking customers as "entered")
 router.put('/:business_id', async (req, res) => {
-  const { businessId, id } = req.body;
+  const { id, phone, email, name, business_id } = req.body;
   try {
-    let queue = await Queue.findOneAndUpdate(
-      { 'customers._id': id },
-      {
-        $set: { 'customers.$.entered': true, 'customers.$.waiting': false },
-        $inc: { tally: +1 },
+    // only update the entered and waiting values
+    if (!name) {
+      let queue = await Queue.findOneAndUpdate(
+        { 'customers._id': id },
+        {
+          $set: { 'customers.$.entered': true, 'customers.$.waiting': false },
+          $inc: { tally: +1 },
+        }
+      );
+      if (!queue) {
+        console.error(error.message);
+        return res
+          .status(400)
+          .json({ msg: 'Error: no matching customer found' });
       }
-    );
-    if (!queue) {
-      console.error(error.message);
-      return res.status(400).json({ msg: 'Error: no matching customer found' });
-    }
-    var total = queue.customers.length;
-    var current = 0;
-    for (var i = 0; i < total; i++) {
-      if (queue.customers[i].entered === true) {
-        current++;
+      var total = queue.customers.length;
+      var current = 0;
+      for (var i = 0; i < total; i++) {
+        if (queue.customers[i].entered === true) {
+          current++;
+        }
       }
+      var wait = total - current;
+      var payload = {};
+      payload.current = current + 1;
+      payload.wait = wait - 1;
+      payload.tally = queue.tally + 1;
+      res.json(payload);
+
+      // notify the customer
+    } else {
+      const business = await Business.findById({
+        _id: business_id,
+      }).select('-password');
+      console.log(business);
+      var bName = business.settings.businessName;
+      const message = `${name}, your reservation is ready at ${bName}`;
+      sendEmail.notify(name, email, message);
+      sendSMS.send(phone, message);
+      res.send(true);
     }
-    var wait = total - current;
-    var payload = {};
-    payload.current = current + 1;
-    payload.wait = wait - 1;
-    payload.tally = queue.tally + 1;
-    res.json(payload);
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');
@@ -83,6 +101,7 @@ router.put('/:business_id', async (req, res) => {
 // Delete route for removing customer from queue if they don't show
 router.delete('/:business_id', async (req, res) => {
   const { id, email, phone, name, businessId } = req.body;
+  console.log(req.body);
   try {
     await Queue.findOneAndUpdate(
       { business: businessId },
