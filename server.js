@@ -20,14 +20,15 @@ app.get('/', (req, res) => res.render('home')); // default route to app
 app.get('/login', (req, res) => res.render('login'));
 app.get('/sign-up', (req, res) => res.render('createAccount'));
 app.get('/sign-up-success', (req, res) => res.render('successCreateAccount'));
-// app.get('/manager', (req, res) => res.render('manager'));
+app.get('/manager', (req, res) => res.render('manager'));
+app.get('/contactform', (req, res) => res.render('contactform'));
 app.get('/businesspage', (req, res) => res.render('businesspage'));
 
 app.use('/business', require('./routes/account'));
 app.use('/business', require('./routes/login'));
 app.use('/business', require('./routes/auth'));
 app.use('/business', require('./routes/logout'));
-app.use('/addCustomer', require('./routes/addCustomer'));
 app.use('/manager', require('./routes/bizManager'));
+app.use('/addCustomer', require('./routes/addCustomer'));
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

@@ -83,9 +83,9 @@ router.post('/:business_id', async (req, res) => {
 
       // send notifications (SMS and Email)
       //add date and time of reservation
-      var message = `Hello ${name}, this is a reminder of your reservation for entry to ${business.name}. You will recieve another message when you are able to enter ${business.name}`;
-      sendEmail.notify(name, email, business.name, message);
-      sendSMS.send(phone, message);
+      // var message = `Hello ${name}, this is a reminder of your reservation for entry to ${business.name}. You will recieve another message when you are able to enter ${business.name}`;
+      // sendEmail.notify(name, email, business.name, message);
+      // sendSMS.send(phone, message);
     } else {
       res.status(400).send('Could not find customer queue');
     }

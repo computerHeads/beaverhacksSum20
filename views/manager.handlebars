@@ -111,7 +111,7 @@
                 <!--this is each indiviual column: first columns aka left side-->
                 <div class="col">
                     <br><br>
-                    <h3>{{biz.name}}</h3>
+                    <h3>{{biz.settings.businessName}}</h3>
                     <hr>
                     <div>Open: {{biz.settings.open}}</div>
                     <div>Close: {{biz.settings.close}}</div>
@@ -121,6 +121,7 @@
                     <div>Each customer data expires in: </div>
                     <hr>
                     <button>Stop Waitlist</button>
+                    <br><br>
                 </div>
                 <!--this is the right column-->
                 <div class="col bg-white" style="border-radius:2%">
@@ -134,21 +135,16 @@
                         <label for="sent">Sent:</label><input class="numCust" name="sent" type="number" value="">
                     </div>
                     <hr>
-                    <table>
-                        <tbody>
-                            {{#each customers}}
-                            <ol class="custList">
-                                <tr>
-                                    <td><button
-                                            onclick="deleteCustomer({{this.id}}, {{this.phone}}, {{this.email}})">[x]</button>
-                                    </td>
-                                    <td>{{this.name}}</td>
-                                    <td><button onclick="markCustomer({{this.id}})">&check;</button></td>
-                                </tr>
-                            </ol>
-                            {{/each}}
-                        </tbody>
-                    </table>
+                    <ol>
+                        {{#each customers}}
+                        <li class="custList">
+                            <button class="x"
+                                onclick=`deleteCustomer({{this._id}},{{this.phone}},{{this.email}})`>X</button>
+                            <span>{{this.name}}</span>
+                            <button class="check" onclick=`markCustomer({{this._id}})`>&check;</button>
+                        </li>
+                        {{/each}}
+                    </ol>
                     <br><br>
                 </div>
             </div>
