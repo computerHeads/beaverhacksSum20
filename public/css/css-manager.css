@@ -1,11 +1,11 @@
 :root {
   --input-padding-x: 1.5rem;
-  --input-padding-y: 0.75rem;
+  --input-padding-y: .75rem;
 }
 
 body {
   background: #007bff;
-  background: linear-gradient(to right, #0062e6, #33aeff);
+  background: linear-gradient(to right, #0062E6, #33AEFF);
 }
 
 .card-signin {
@@ -22,10 +22,9 @@ body {
 }
 
 .card-signin .card-img-left {
-  width: 45%;
+  width: 35%;
   /* Link to your background image using in the property below! */
-  background: scroll center
-    url('https://source.unsplash.com/WEQbe2jBg40/414x512');
+  background: scroll center url('../css/img/clouds_sea.jpg');
   background-size: cover;
 }
 
@@ -40,7 +39,7 @@ body {
 .form-signin .btn {
   font-size: 80%;
   border-radius: 5rem;
-  letter-spacing: 0.1rem;
+  letter-spacing: .1rem;
   font-weight: bold;
   padding: 1rem;
   transition: all 0.2s;
@@ -56,12 +55,12 @@ body {
   border-radius: 2rem;
 }
 
-.form-label-group > input,
-.form-label-group > label {
+.form-label-group>input,
+.form-label-group>label {
   padding: var(--input-padding-y) var(--input-padding-x);
 }
 
-.form-label-group > label {
+.form-label-group>label {
   position: absolute;
   top: 0;
   left: 0;
@@ -72,8 +71,8 @@ body {
   line-height: 1.5;
   color: #495057;
   border: 1px solid transparent;
-  border-radius: 0.25rem;
-  transition: all 0.1s ease-in-out;
+  border-radius: .25rem;
+  transition: all .1s ease-in-out;
 }
 
 .form-label-group input::-webkit-input-placeholder {
@@ -101,67 +100,17 @@ body {
   padding-bottom: calc(var(--input-padding-y) / 3);
 }
 
-.form-label-group input:not(:placeholder-shown) ~ label {
+.form-label-group input:not(:placeholder-shown)~label {
   padding-top: calc(var(--input-padding-y) / 3);
   padding-bottom: calc(var(--input-padding-y) / 3);
   font-size: 12px;
   color: #777;
 }
 
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 20;
-  left: 0;
-  background-color: #ffffff;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+.insidebox {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+.boxx {
+  box-shadow: 10px 10px 5px grey;
 }
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-.custList:nth-of-type(1n + 4) {
-  display: none;
-}
-.numCust {
-  width: 15%;
-  border-radius: 7px;
-}
-#nums {
-  text-align: center;
-}
-
-.custName {
-  float: center;
-}
-
-/* .scrollBox {
-  height: 200px;
-  scroll-behavior: scroll;
-  width: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  margin: auto;
-} */
