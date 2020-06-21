@@ -16,9 +16,12 @@ router.get('/:business_id', async (req, res) => {
     }
     let queue = await Queue.findOne({ business: req.params.business_id });
     const payload = {};
-    payload.business = business;
+    const biz = business.toJSON();
+    console.log(biz);
+    payload.biz = biz;
     payload.customers = queue.customers;
-    res.json(payload);
+    // console.log(payload);
+    res.render('manager', payload);
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');
