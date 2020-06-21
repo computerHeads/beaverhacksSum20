@@ -28,7 +28,6 @@ app.use('/business', require('./routes/login'));
 app.use('/business', require('./routes/auth'));
 app.use('/business', require('./routes/logout'));
 app.use('/addCustomer', require('./routes/addCustomer'));
-app.use('/business', require('./routes/mngCust'));
-app.use('/addCustomer', require('./routes/addCustomer'));
+app.use('/business', require('./routes/businessManager'));
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
