@@ -27,7 +27,6 @@ const BusinessSchema = new mongoose.Schema({
     },
     businessType: {
       type: String,
-      required: true,
     },
     website: {
       type: String,

@@ -22,25 +22,24 @@ function sendAccountForm() {
   var state = document.getElementById("inputState");
   var zip = document.getElementById("inputZip");
 
-  // openDays[6].value == "Sun" // boolean: "true", "false" by .checked// index: 0~ 6 (Mon, Tue, Wed, Thu, Fri, Sat, Sun)
-  
-  
-  
   if (addressTwo.value == "") {
-    address = addressOne.value + "," + city.value + "," + state.value + "," + zip.value;
+    var address = addressOne.value + "," + city.value + "," + state.value + "," + zip.value;
   } else {
-    address = addressOne.value + "," + addressTwo.value + "," + city.value + "," + state.value + "," + zip.value;
+    var address = addressOne.value + "," + addressTwo.value + "," + city.value + "," + state.value + "," + zip.value;
   }
 
-  if (businessTypes[0].selected == "true") {
-    businessType = "Not selected";
-  } else if (businessTypes[1].selected == "true") {
-    businessType = "Restaurants";
-  } else if (businessTypes[2].selected == "true") {
-    businessType = "Stores";
-  } else if (businessTypes[3].selected == "true") {
-    businessType = "Others";
+  if (businessTypes[0].selected == "undefined") {
+    var businessType = "Not selected";
+  } else if (businessTypes[1].selected == true) {
+    console.log(businessTypes[1].selected == true);
+    var businessType = "Restaurants";
+  } else if (businessTypes[2].selected == true) {
+    var businessType = "Stores";
+  } else if (businessTypes[3].selected == true) {
+    var businessType = "Others";
   }
+
+  // openDays[6].value == "Sun" // boolean: "true", "false" by .checked// index: 0~ 6 (Mon, Tue, Wed, Thu, Fri, Sat, Sun)
 
   // var phone = document.getElementById("inputPhone").value,
   //   phone = `+1${phone.substring(0, 3)}${phone.substring(
@@ -67,7 +66,6 @@ function sendAccountForm() {
   
     // phone: phone,
     // openDays: openDays,
-    
   
   req.open('POST', baseURL, true);
   req.setRequestHeader('Content-Type', 'application/json');
