@@ -99,7 +99,7 @@ router.post('/:business_id', async (req, res) => {
 router.put('/:business_id', async (req, res) => {
   const { name, phone, email, customerId } = req.body;
   try {
-    let queue = await Queue.findOneAndUpdate(
+    await Queue.findOneAndUpdate(
       { 'customers._id': customerId },
       {
         $set: {
