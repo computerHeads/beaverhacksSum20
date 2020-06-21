@@ -13,7 +13,7 @@ function sendAccountForm() {
   var isAgreeTerms = document.getElementById("agreeCondition");
   var open = document.getElementById("inputOpen");
   var close = document.getElementById("inputClose");
-  var openDays = document.getElementsByName("openDays");
+  var openingDays = document.getElementsByName("openDays");
   var businessTypes = document.getElementsByName("businessType");
 
   var addressOne = document.getElementById("inputAddressOne");
@@ -39,8 +39,31 @@ function sendAccountForm() {
     var businessType = "Others";
   }
 
-  // openDays[6].value == "Sun" // boolean: "true", "false" by .checked// index: 0~ 6 (Mon, Tue, Wed, Thu, Fri, Sat, Sun)
-
+  // openingDays[6].value == "Sun" // boolean: true, false by .checked// index: 0~ 6 (Mon, Tue, Wed, Thu, Fri, Sat, Sun)
+  if (openingDays[0].checked == true && openingDays[1].checked == true && 
+    openingDays[2].checked == true && openingDays[3].checked == true &&
+    openingDays[4].checked == true) {
+      var openDays = "Mon - Fri";
+    } else if (openingDays[0].checked == true && openingDays[1].checked == true && 
+    openingDays[2].checked == true && openingDays[3].checked == true) {
+      var openDays = "Mon - Thu";
+    } else if (openingDays[0].checked == true && openingDays[1].checked == true && openingDays[2].checked == true) {
+      var openDays = "Mon - Wed";
+    } else if (openingDays[1].checked == true && 
+      openingDays[2].checked == true && openingDays[3].checked == true &&
+      openingDays[4].checked == true) {
+        var openDays = "Tue - Fri";
+      } else if (openingDays[1].checked == true && 
+        openingDays[2].checked == true && openingDays[3].checked == true) {
+          var openDays = "Tue - Thu";
+        } else {
+          var openDays = "";
+          for (let i = 0; i < openingDays.length; i++) {
+            if (openingDays[i].checked == true) {
+              openDays = openDays + "/" + openingDays[i].value;
+          }
+        }
+      }
   // var phone = document.getElementById("inputPhone").value,
   //   phone = `+1${phone.substring(0, 3)}${phone.substring(
   //     4,
@@ -57,6 +80,7 @@ function sendAccountForm() {
       website: website.value,
       open: open.value,
       close: close.value,
+      openDays: openDays,
       maxOccupancy: maxOccupancy.value,
       businessType: businessType,
       isShowBusinessInfo: isShowBusinessInfo.checked,
@@ -65,7 +89,6 @@ function sendAccountForm() {
   };
   
     // phone: phone,
-    // openDays: openDays,
   
   req.open('POST', baseURL, true);
   req.setRequestHeader('Content-Type', 'application/json');
