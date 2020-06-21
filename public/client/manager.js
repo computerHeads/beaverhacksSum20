@@ -68,9 +68,21 @@ function markCustomer(id) {
 
 function notifyCustomer(id, phone, email, name) {
   var req = new XMLHttpRequest();
+  var business_id = document.getElementById('bzId').value;
   var payload = {};
   payload.id = id;
+  payload.business_id = business_id;
   payload.phone = phone;
   payload.email = email;
   payload.name = name;
+  req.open('PUT', baseURL, true);
+  req.setRequestHeader('Content-Type', 'application/json');
+  req.send(JSON.stringify(payload));
+  req.addEventListener('load', () => {
+    var customer = document.getElementById(id);
+    var arr = customer.children;
+    customer.removeChild(arr[2]);
+    var span = document.createElement('span');
+    customer.insertBefore(span, customer.children[2]);
+  });
 }

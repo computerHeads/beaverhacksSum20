@@ -5,7 +5,7 @@
 <br><br><br>
 <div id="businessPage" class="container">
     <h1 class="text-white text-center">Manager Portal</h1>
-    <hr>
+
     <br>
     <!--row is also for everything-->
     <div class="row">
@@ -13,7 +13,7 @@
             <!--this is the final row-->
             <div id="biz" class="row">
                 <!--this is each indiviual column: first columns aka left side-->
-                <div class="col">
+                <div class="col text-center bizInfo">
                     <br><br>
                     <h3>{{biz.settings.businessName}}</h3>
                     <hr><br>
@@ -22,8 +22,9 @@
                     <a>Close: <input class="settings" type="time" value="{{biz.settings.close}}"></input></a>
                     <br><br>
                     <hr><br>
-                    <a>Maximum(table/people):
-                        <input class="settings" name="max" type="number" value="{{biz.settings.maxOccupancy}}"></a><br>
+                    <a>Maximum Occupancy:
+                        <input class="settings" name="max" type="number" value="{{biz.settings.maxOccupancy}}"></a>
+                    tables/people<br>
                     <br>
                     <hr><br>
                     <a>Each customer data expires in: <input class="settings" name="current" type="number" value="">
@@ -107,7 +108,7 @@
                                 onclick="deleteCustomer('{{this._id}}','{{this.phone}}','{{this.email}}','{{this.name}}')">X</button>
                             <span>{{this.name}}</span>
                             <button
-                                onclick="notifyCustomer('{{this.id}}','{{this.phone}}','{{this.email}}','{{this.name}}'')">notify</button>
+                                onclick="notifyCustomer('{{this._id}}','{{this.phone}}','{{this.email}}','{{this.name}}')">notify</button>
                             <button class=" check" onclick="markCustomer('{{this._id}}')">&check;</button>
                         </li>
                         {{/if}}

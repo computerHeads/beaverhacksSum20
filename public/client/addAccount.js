@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000/business/create-account';
+const accountURL = 'http://localhost:3000/business/create-account';
 
 //open source validator from https://intl-tel-input.com/node_modules/intl-tel-input/examples/gen/is-valid-number.html
 var input = document.querySelector('#phone'),
@@ -155,15 +155,15 @@ function sendAccountForm() {
     isAgreeTerms: isAgreeTerms.checked,
   };
 
-  // phone: phone,
-
-  req.open('POST', baseURL, true);
+  req.open('POST', accountURL, true);
   req.setRequestHeader('Content-Type', 'application/json');
   req.send(JSON.stringify(payload));
   req.addEventListener('load', () => {
     var response = JSON.parse(req.response);
     if (response.isSignUp == 'true') {
       window.location = 'http://localhost:3000/sign-up-success';
+    } else {
+      window.location = 'http://localhost:3000/sign-up-fail';
     }
   });
   event.preventDefault();

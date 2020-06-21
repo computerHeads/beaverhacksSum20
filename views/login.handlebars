@@ -11,23 +11,20 @@
         <div class="container">
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
-              <h3 class="login-heading mb-4">Welcome to <b>QUEUEUE:</b></h3>
+              <h2 class="login-heading mb-4"> Welcome to <b>QUEUEUE:</b></h2>
               <form>
+                
                 <div class="form-label-group">
-                  <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required
+                  <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email Address" required
                     autofocus>
-                  <label for="inputEmail">Email address</label>
+                  <span id="email-error-msg" class="hide"></span>
                 </div>
 
                 <div class="form-label-group">
                   <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                  <label for="inputPassword">Password</label>
+                  <span id="pwd-error-msg" class="hide"></span>
                 </div>
 
-                <div class="custom-control custom-checkbox mb-3">
-                  <input name="rememberPwd" type="checkbox" class="custom-control-input" id="customCheck1">
-                  <label class="custom-control-label" for="customCheck1">Remember password</label>
-                </div>
                 <button id="submitBtn" class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
                   type="submit" onclick="sendLoginForm()">Sign in</button>                
                 <div class="text-center"><a class="small" href="#">Forgot password?</a></div>
