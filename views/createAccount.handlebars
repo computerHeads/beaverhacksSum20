@@ -16,14 +16,14 @@
 
               <h3 class="card-title text-center">Sign Up</h3>
               <form class="form-signin">
-                <div class="form-label-group">
+                <div class="form-label-group form-label-style">
                   <input name="name" type="text" id="inputName" class="form-control" placeholder="Name" required
                     autofocus>
                   <label for="inputName">Name</label>
                 </div>
 
 
-                <div class="form-label-group">
+                <div class="form-label-group form-label-style">
                   <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address"
                     required>
                   <label for="inputEmail">Email address</label>
@@ -31,7 +31,7 @@
 
                 <hr>
 
-                <div class="form-label-group">
+                <div class="form-label-group form-label-style">
                   <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password"
                     required>
                   <label for="inputPassword">Password</label>
@@ -40,61 +40,62 @@
 
                 <h4 class="card-title text-center">Business Info</h4>
 
-                <div class="form-label-group">
+                <div class="form-label-group form-label-style">
                   <input name="businessName" type="text" id="inputBusinessName" class="form-control"
                     placeholder="Business Name" required>
                   <label for="inputBusinessName">Business Name</label>
                 </div>
 
-                <div class="form-label-group">
-                  <input name="phone" type="tel" id="phone" class="form-control">
+                <div class="form-label-group phone">
+                  <input name="phone" type="tel" id="phone" class="form-control"
+                  placeholder="+1 201-555-0123">
                   <span id="error-msg" class="hide"></span>
                 </div>
 
-                <div class="form-label-group">
+                <div class="form-label-group form-label-style">
                   <input name="website" type="text" id="inputWebsite" class="form-control" placeholder="Website">
                   <label for="inputWebsite">Website</label>
                 </div>
 
                 <hr>
 
-                <div class="form-label-group">
+                <div class="form-label-group form-label-style">
                   <input name="addressOne" type="text" id="inputAddressOne" class="form-control address"
                     placeholder="Address Line 1" required>
                   <label for="inputAddressOne">Address 1</label>
                 </div>
 
-                <div class="form-label-group">
+                <div class="form-label-group form-label-style">
                   <input name="addressTwo" type="text" id="inputAddressTwo" class="form-control address"
                     placeholder="Address Line 2">
                   <label for="inputAddressTwo">Address 2</label>
                 </div>
 
-                <div class="form-label-group">
+                <div class="form-label-group form-label-style">
                   <input name="city" type="text" id="inputCity" class="form-control address" placeholder="City"
                     required>
                   <label for="inputCity">City</label>
                 </div>
 
-                <div class="form-label-group">
+                <div class="form-label-group form-label-style">
                   <input name="state" type="text" id="inputState" class="form-control address" placeholder="State"
                     required>
                   <label for="inputState">State</label>
                 </div>
 
-                <div class="form-label-group">
+                <div class="form-label-group form-label-style">
                   <input name="zip" type="text" id="inputZip" class="form-control address" placeholder="Zip" required>
                   <label for="inputZip">Zip</label>
                 </div>
 
                 <hr>
 
-                <div class="form-label-group">
+                <div class="form-label-group form-label-style">
                   <input name="open" type="time" id="inputOpen" class="form-control" placeholder="Open" required>
                   <label for="inputOpen">Open</label>
                 </div>
 
-                <div class="form-label-group text-center open-day">
+                <div class="form-label-group form-label-style text-center open-day">
                   <br><input name="openDays" type="checkbox" id="inputMon" value="Mon"> Mon
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <input name="openDays" type="checkbox" id="inputTue" value="Tue"> Tue
@@ -111,21 +112,21 @@
                   <br><br>
                 </div>
 
-                <div class="form-label-group">
+                <div class="form-label-group form-label-style">
                   <input name="close" type="time" id="inputClose" class="form-control" placeholder="Close" required>
                   <label for="inputClose">Close</label>
                 </div>
 
                 <hr>
 
-                <div class="form-label-group">
+                <div class="form-label-group form-label-style">
                   <input name="maxOccupancy" type="number" id="inputMaxOccupancy" class="form-control"
                     placeholder="Max Occupancy (tables/people)" required>
                   <label for="inputMaxOccupancy">Max Occupancy (tables/people)</label>
                 </div>
 
 
-                <div class="col-auto my-2 form-label-group">
+                <div class="col-auto my-2 form-label-group form-label-style">
                   <select name="businessType" id="inputType" class="custom-select">
                     <option selected>Choose Business Type... </option>
                     <option name="businessType" value="Restaurants">Restaurants</option>
