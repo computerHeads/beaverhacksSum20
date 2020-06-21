@@ -21,23 +21,15 @@ app.get('/login', (req, res) => res.render('login'));
 app.get('/sign-up', (req, res) => res.render('createAccount'));
 app.get('/sign-up-success', (req, res) => res.render('successCreateAccount'));
 app.get('/manager', (req, res) => res.render('manager'));
-<<<<<<< HEAD
 app.get('/contactform', (req, res) => res.render('contactform'));
-=======
-app.get('/businesspage', (req, res) => res.render('businesspage'));
->>>>>>> 38fb1b89f82001640a675ad32c32d9ffc8db926a
 
 app.use('/business', require('./routes/account'));
 app.use('/business', require('./routes/login'));
 app.use('/business', require('./routes/auth'));
 app.use('/business', require('./routes/logout'));
 app.use('/addCustomer', require('./routes/addCustomer'));
-<<<<<<< HEAD
-app.use('/business', require('./routes/mngCust'));
+app.use('/business', require('./routes/businessManager'));
 app.use('/addCustomer', require('./routes/addCustomer'));
 app.get('/businesspage', (req, res) => res.render('businesspage'));
-=======
-app.use('/business', require('./routes/businessManager'));
->>>>>>> 38fb1b89f82001640a675ad32c32d9ffc8db926a
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
