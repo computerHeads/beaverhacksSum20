@@ -6,28 +6,41 @@ function sendAccountForm() {
   var name = document.getElementById("inputName");
   var email = document.getElementById("inputEmail");
   var password = document.getElementById("inputPassword");
-  // var businessName = document.getElementById("inputBusinessName");
-  // var website = document.getElementById("inputWebsite");
+  var businessName = document.getElementById("inputBusinessName");
+  var website = document.getElementById("inputWebsite");
+  var maxOccupancy = document.getElementById("inputMaxOccupancy");
+  var isShowBusinessInfo = document.getElementById("showBusinessInfoPublic");
+  var isAgreeTerms = document.getElementById("agreeCondition");
+  var open = document.getElementById("inputOpen");
+  var close = document.getElementById("inputClose");
+  var openDays = document.getElementsByName("openDays");
+  var businessTypes = document.getElementsByName("businessType");
 
-  // var open = document.getElementById("inputOpen");
-  // var close = document.getElementById("inputClose");
+  var addressOne = document.getElementById("inputAddressOne");
+  var addressTwo = document.getElementById("inputAddressTwo");
+  var city = document.getElementById("inputCity");
+  var state = document.getElementById("inputState");
+  var zip = document.getElementById("inputZip");
 
-  // var maxOccupancy = document.getElementById("inputMaxOccupancy");
-  // var isShowBusinessInfo = document.getElementById("showBusinessInfoPublic");
-  // var isAgreeTerms = document.getElementById("agreeCondition");
+  // openDays[6].value == "Sun" // boolean: "true", "false" by .checked// index: 0~ 6 (Mon, Tue, Wed, Thu, Fri, Sat, Sun)
+  
+  
+  
+  if (addressTwo.value == "") {
+    address = addressOne.value + "," + city.value + "," + state.value + "," + zip.value;
+  } else {
+    address = addressOne.value + "," + addressTwo.value + "," + city.value + "," + state.value + "," + zip.value;
+  }
 
-  // //openDays = edit required
-  // var openDays = document.getElementsByName("openDays");
-
-  // // businessType = edit required
-  // var businessType = document.getElementsByName("businessType");
-
-  // // address - edit required
-  // var addressOne = document.getElementById("inputAddressOne");
-  // var addressTwo = document.getElementById("inputAddressTwo");
-  // var city = document.getElementById("inputCity");
-  // var state = document.getElementById("inputState");
-  // var zip = document.getElementById("inputZip");
+  if (businessTypes[0].selected == "true") {
+    businessType = "Not selected";
+  } else if (businessTypes[1].selected == "true") {
+    businessType = "Restaurants";
+  } else if (businessTypes[2].selected == "true") {
+    businessType = "Stores";
+  } else if (businessTypes[3].selected == "true") {
+    businessType = "Others";
+  }
 
   // var phone = document.getElementById("inputPhone").value,
   //   phone = `+1${phone.substring(0, 3)}${phone.substring(
@@ -35,23 +48,27 @@ function sendAccountForm() {
   //     7
   //   )}${phone.substring(8)}`;
 
-  // Add to payload: openDays, businessType, address(combined text)
   const payload = {
     name: name.value,
     email: email.value,
     password: password.value,
+    settings: {
+      businessName: businessName.value,
+      address: address,
+      website: website.value,
+      open: open.value,
+      close: close.value,
+      maxOccupancy: maxOccupancy.value,
+      businessType: businessType,
+      isShowBusinessInfo: isShowBusinessInfo.checked,
+    },
+    isAgreeTerms: isAgreeTerms.checked,
   };
-    // phone: phone,
-    // businessName: businessName.value,
-    // website: website.value,
-    // fix - open, close, maxOccupancy, isShowBusinessInfo is in 'settings' in BusinessSchema
-    // open: open.value,
-    // close: close.value,
-    // maxOccupancy: maxOccupancy.value,
-    // isShowBusinessInfo: isShowBusinessInfo.checked,
-    // isAgreeTerms: isAgreeTerms.checked,
   
-
+    // phone: phone,
+    // openDays: openDays,
+    
+  
   req.open('POST', baseURL, true);
   req.setRequestHeader('Content-Type', 'application/json');
   req.send(JSON.stringify(payload));

@@ -8,14 +8,7 @@ const secret = require('../config/default');
 const BusinessSchema = new mongoose.Schema({
   name: {
     type: String,
-    maxlength: 50,
     required: true,
-    unique: true,
-  },
-  address: {
-    type: String,
-    required: true,
-    unique: true,
   },
   email: {
     type: String,
@@ -23,29 +16,50 @@ const BusinessSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-  phone: {
-    type: Number,
-    required: true,
-    unique: true,
-  },
   password: {
     type: String,
     required: true,
-    minlength: 4,
   },
   settings: {
-    open: {
-      type: Number,
+    businessName: {
+      type: String,
       required: true,
     },
-    close: {
-      type: Number,
+    businessType: {
+      type: String,
       required: true,
+    },
+    website: {
+      type: String,
     },
     maxOccupancy: {
       type: Number,
       required: true,
     },
+    isShowBusinessInfo: {
+      type: Boolean,
+    },
+    // phone: {
+  //   type: Number,
+  //   required: true,
+  //   unique: true,
+    // },
+    address: {
+    type: String,
+    required: true,
+    },
+    open: {
+      type: String,
+      required: true,
+    },
+    close: {
+      type: String,
+      required: true,
+    },
+  },
+  isAgreeTerms: {
+    type: Boolean,
+    required: true,
   },
   token: {
     type: String,
