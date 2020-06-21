@@ -51,6 +51,9 @@ const BusinessSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
+    openDays: {
+      type: String,
+    },
     close: {
       type: String,
       required: true,
