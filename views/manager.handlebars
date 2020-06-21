@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <body>
     <!--side nav bar-->
@@ -25,85 +26,102 @@
                 <div class="card card-signin flex-row my-5">
                     <div class="card-img-left d-none d-md-flex">
                         <!-- Background image for card set in CSS! -->
+=======
+<link rel="stylesheet" href="/css/css-manager.css" />
+<!--side nav bar-->
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a onclick="managerPage()">Managers</a>
+    <a href="#">Settings</a>
+    <a onclick="businessPage()">Business Page</a>
+    <a href="#">Contact</a>
+</div>
+<!--side navbar icon-->
+<span style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776;</span>
+<!--side navbar end-->
+<div id="managerPage" class="container" style="display: block;">
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+                <div class="card-img-left d-none d-md-flex">
+                    <!-- Background image for card set in CSS! -->
+                </div>
+                <div class="card-body">
+                    <div class="col">
+                        <!--titles-->
+                        <h4 class="card-title text-center">Please Select from the following:</h4>
+                        <h4 class="card-title text-center">What kind of store do you own?</h4>
+                        <form class="form-signin">
+                            <hr class="my-4">
+                            <h4 class="card-title text-center">Are you a...</h4>
+                        </form>
+>>>>>>> 38fb1b89f82001640a675ad32c32d9ffc8db926a
                     </div>
-                    <div class="card-body">
-                        <div class="col">
-                            <!--titles-->
-                            <h4 class="card-title text-center">Please Select from the following:</h4>
-                            <h4 class="card-title text-center">What kind of store do you own?</h4>
-                            <form class="form-signin">
-                                <hr class="my-4">
-                                <h4 class="card-title text-center">Are you a...</h4>
-                            </form>
-                        </div>
-                        <!--these are the three buttons-->
-                        <div class="text-center">
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModal" style="height: 150px; width: 400px;"><span
-                                    style="font-size:30px;">Restaurant
-                                    Owner</span></button>
-                            <br><br><br><br><button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModal" style="height: 150px; width: 400px;"><span
-                                    style="font-size:30px;">Store
-                                    Owner</span></button>
-                            <br><br><br><br><button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModal" style="height: 150px; width: 400px;"><span
-                                    style="font-size:30px;">Other</span></button>
-                        </div>
-                        <br><br><br><br><br>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <!--this is what is inside the popup-->
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="recipient-name" class="col-form-label">Restaurant
-                                                    Owner</label>
-                                                <div class="container">
-                                                    <label for="appt">Please select time you will be opening: </label>
-                                                    <input type="time"></input>
-                                                </div>
-                                                <br>
-                                                <div class="container">
-                                                    <label for="appt">Please select time you will be closing:</label>
-                                                    <input type="time"></input>
-                                                </div>
-                                                <hr>
-                                                <h5>Maximum Tables</h5>
-                                                <input>
-                                                <h5>(if 1 group = 1 person)</h5>
-                                                <h5>OR</h5>
-                                                <h5 class="display-5">Maximum Tables </h5>
-                                                <input>
-                                                <h5>(if 1 group /= 1 person)</h5>
+                    <!--these are the three buttons-->
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                            style="height: 150px; width: 400px;"><span style="font-size:30px;">Restaurant
+                                Owner</span></button>
+                        <br><br><br><br><button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#exampleModal" style="height: 150px; width: 400px;"><span
+                                style="font-size:30px;">Store
+                                Owner</span></button>
+                        <br><br><br><br><button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#exampleModal" style="height: 150px; width: 400px;"><span
+                                style="font-size:30px;">Other</span></button>
+                    </div>
+                    <br><br><br><br><br>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <!--this is what is inside the popup-->
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="col-form-label">Restaurant
+                                                Owner</label>
+                                            <div class="container">
+                                                <label for="appt">Please select time you will be opening: </label>
+                                                <input type="time"></input>
                                             </div>
-                                            <hr class="my-4">
+                                            <br>
+                                            <div class="container">
+                                                <label for="appt">Please select time you will be closing:</label>
+                                                <input type="time"></input>
+                                            </div>
+                                            <hr>
+                                            <h5>Maximum Tables</h5>
+                                            <input>
+                                            <h5>(if 1 group = 1 person)</h5>
+                                            <h5>OR</h5>
+                                            <h5 class="display-5">Maximum Tables </h5>
+                                            <input>
+                                            <h5>(if 1 group /= 1 person)</h5>
+                                        </div>
+                                        <hr class="my-4">
 
-                                            <label> If the customer never shows up, what time you like them auto drop
-                                                off the
-                                                list? </label>
-                                            <input type="time"></input><br><br><br>
-                                            <div class="form-group">
-                                                <label for="message-text" class="col-form-label">Additional
-                                                    Comments:</label>
-                                                <textarea class="form-control" id="message-text"></textarea>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <!--last two buttons at the bottom-->
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Submit</button>
-                                    </div>
+                                        <label> If the customer never shows up, what time you like them auto drop
+                                            off the
+                                            list? </label>
+                                        <input type="time"></input><br><br><br>
+                                        <div class="form-group">
+                                            <label for="message-text" class="col-form-label">Additional
+                                                Comments:</label>
+                                            <textarea class="form-control" id="message-text"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--last two buttons at the bottom-->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +130,46 @@
             </div>
         </div>
     </div>
-</body>
+</div>
+<!--container is for the whole thing-->
+<div id="businessPage" class="container" style="display: none;">
+    <!--row is also for everything-->
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto bg-light" style="border-radius: 2%;">
+            <!--this is the final row-->
+            <div class="row">
+                <!--this is each indiviual column: first columns aka left side-->
+                <div class="col">
+                    <br><br>
+                    <h3>Your Restaurant Settings</p>
+                        <hr>
+                        <p>Open:</p>
+                        <p>Close</p>
+                        <hr>
+                        <p>Maximum:</p>
+                        <p>(table/people)</p>
+                        <hr>
+                        <p>Each customer data expires in: </p>
+                        <hr>
+                        <p>Stop Waitlist</p>
+                        <br><br>
+                </div>
+                <!--this is the right column-->
+                <div class="col bg-white" style="border-radius:2%">
+                    <br><br>
+                    <h5 class="text-center">Manage Your Waitlist</h5>
+                    <hr>
+                    <p> Current: Wait: Sent:</p>
+                    <hr>
+                    <p> Name one</p>
+                    <p> Name two</p>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 
@@ -131,4 +188,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
+<<<<<<< HEAD
   <link rel="stylesheet" href="/css/css-manager.css" />
+=======
+<script src="/client/manager.js"></script>
+>>>>>>> 38fb1b89f82001640a675ad32c32d9ffc8db926a

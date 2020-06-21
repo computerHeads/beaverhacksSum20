@@ -1,81 +1,47 @@
-<!--navbar-->
-<nav class="navbar-light bg-light navbar navbar-expand-sm ">
-    <a class="navbar-brand" href="#">
-        <img src="https://png.pngtree.com/png-clipart/20190706/original/pngtree-passengers-who-queue-up-to-buy-tickets-are-free-of-elements-png-image_4373331.jpg"
-            height="120">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+                <div class="card-img-left d-none d-md-flex">
+                    <!-- Background image for card set in CSS! -->
+                </div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="http://localhost:3000">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="addcustomer.html">Customer form</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#bottom">Contact Us</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<!--end of nav bar -->
-
-
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 col-xl-9 mx-auto">
-                <div class="card card-signin flex-row my-5">
-                    <div class="card-img-left d-none d-md-flex">
-                        <!-- Background image for card set in CSS! -->
-                    </div>
-                    <div id="hiddenDiv">Your reservation has been canceled</div>
-
-                    <div class="container">
-                        <div class="row ">
-                            <div class="col col-lg-10 col-md-8 col-sm-6 mx-auto">
-
-                                <div class="card-body">
-                                    <br><br>
-                                    <h1 class="text-center ">{{business.name}}</h1>
-
-                                    <div id="status">
-                                        There are currently <u>{{wait}}</u> people waiting ahead of you
-                                        {{!-- fix this  --}}
+                <div class="container">
+                    <div class="row ">
+                        <div class="col col-lg-10 col-md-8 col-sm-6 mx-auto">
+                            <div class="card-body">
+                                <br><br>
+                                <h1 class="text-center ">{{business.name}}</h1>
+                                <div id="status">
+                                    <div id="hiddenDiv">
+                                        <h2>Your reservation has been canceled</h2>
                                     </div>
-                                    <hr>
-                                    <!--customer form-->
-                                    <form>
-                                        <p>Fill out your information below to be added to the waitlist: </p>
-                                        <input name="name" type="text" required="true" placeholder="Name"><br>
-                                        <br>
-                                        <input type="hidden" id="country" name="country" />
-                                        <input id="phone" name="phone" type="tel">
-                                        <span id="error-msg" class="hide"></span><br>
-                                        <br>
-                                        <input name="email" type="email" placeholder="Email"><br>
-                                        <br>
-                                        <input id="id" name="id" type="hidden" value="{{business._id}}">
-                                        <input id="submitBtn" type="submit" value="Submit" onclick="sendForm()">
-                                        <br>
-                                        <br>
-                                        <br>
-                                    </form>
-                                    <div id="cancel"></div>
-                                    <p> Current Business:</p>
-                                    <hr>
-                                    {{business.address}}<br>
-                                    {{business.phone}}<br>
-                                    {{business.email}}<br>
-                                    <br><br>
-                                    <!--end of customer form-->
+                                    There are currently <u>{{wait}}</u> people waiting ahead of you
+                                    {{!-- fix this  --}}
                                 </div>
-
+                                <hr>
+                                <!--customer form-->
+                                <form>
+                                    <p>Fill out your information below to be added to the waitlist: </p>
+                                    <input class="input" name="name" type="text" required="true" placeholder="Name">
+                                    <input class="input" type="hidden" id="country" name="country" />
+                                    <input class="input" id="phone" name="phone" type="tel">
+                                    <span id="error-msg" class="hide"></span>
+                                    <input class="input" name="email" type="email" placeholder="Email">
+                                    <input id="id" name="id" type="hidden" value="{{business._id}}">
+                                    <br><br>
+                                    <button id="submitBtn" class="btn btn-lg btn-primary btn-block text-uppercase"
+                                        onclick="sendForm()">Submit</button>
+                                </form>
+                                <button id="cancelBtn" class="btn btn-lg btn-primary btn-block text-uppercase"
+                                    onclick="cancel()" style="display:none;">Cancel reservation</button>
+                                <p> Current Business:</p>
+                                <hr>
+                                {{business.address}}<br>
+                                {{business.phone}}<br>
+                                {{business.email}}<br>
+                                <br><br>
+                                <!--end of customer form-->
                             </div>
                         </div>
                     </div>

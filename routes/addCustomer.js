@@ -3,8 +3,7 @@ const router = express.Router();
 const Queue = require('../models/Queue');
 const Business = require('../models/Business');
 const sendEmail = require('../public/notifications/email.js');
-const secret = require('../config/default.js');
-const client = require('twilio')(secret.accountSid, secret.authToken);
+const sendSMS = require('../public/notifications/sms.js');
 
 // default route when first arriving on page
 // loads business data & form for customer entry
@@ -84,14 +83,9 @@ router.post('/:business_id', async (req, res) => {
 
       // send notifications (SMS and Email)
       //add date and time of reservation
-      var message = `Hello ${name}, this is a reminder of your reservation for entry to ${business.name}. Please follow the link below to edit or cancel your reservation`;
+      var message = `Hello ${name}, this is a reminder of your reservation for entry to ${business.name}. You will recieve another message when you are able to enter ${business.name}`;
       sendEmail.notify(name, email, business.name, message);
-      client.messages.create({
-        body: `Thank you ${name}! Your reservation has been confirmed. You will recevive another txt when it'ss your turn to enter the store`,
-        from: '+12029463457',
-        to: phone,
-      });
-      // .then((message) => console.log(message.sid));
+      sendSMS.send(phone, message);
     } else {
       res.status(400).send('Could not find customer queue');
     }
@@ -105,7 +99,7 @@ router.post('/:business_id', async (req, res) => {
 router.put('/:business_id', async (req, res) => {
   const { name, phone, email, customerId } = req.body;
   try {
-    let queue = await Queue.findOneAndUpdate(
+    await Queue.findOneAndUpdate(
       { 'customers._id': customerId },
       {
         $set: {
@@ -116,13 +110,9 @@ router.put('/:business_id', async (req, res) => {
       }
     );
     // send sms and/or email to notify they have updated the reservation
-    var message = `${name}, our reservation for ${business.name} has been updated to`;
+    var message = `${name}, our reservation for ${business.name} has been updated.`;
     sendEmail.notify(name, email, business.name, message);
-    client.messages.create({
-      body: `This is confirmation that your reservation ${business.name} has been updated`,
-      from: '+12029463457',
-      to: phone,
-    });
+    sendSMS.send(phone, message);
     res.send('yay');
   } catch (error) {
     console.error(error.message);
@@ -145,11 +135,7 @@ router.delete('/:business_id', async (req, res) => {
     // send sms and/or email to notify they have been deleted
     var message = `${name}, our reservation for ${business.name} has been canceled`;
     sendEmail.notify(name, email, business.name, message);
-    client.messages.create({
-      body: `This is confirmation that your reservation ${business.name} has been canceled`,
-      from: '+12029463457',
-      to: phone,
-    });
+    sendSMS.send(phone, message);
     // .then((message) => console.log(message.sid));
   } catch (error) {
     console.error(error.message);
