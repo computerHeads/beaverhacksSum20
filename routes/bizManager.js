@@ -4,9 +4,10 @@ const Queue = require('../models/Queue');
 const Business = require('../models/Business');
 const sendEmail = require('../public/notifications/email.js');
 const sendSMS = require('../public/notifications/sms.js');
+const Auth = require('../models/Auth');
 
 // GET route to load manager page
-router.get('/:business_id', async (req, res) => {
+router.get('/:business_id', Auth, async (req, res) => {
   try {
     const business = await Business.findById({
       _id: req.params.business_id,

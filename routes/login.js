@@ -14,7 +14,8 @@ router.post('/login', async (req, res) => {
             business.createToken((err, business) => {
                 if (err) return res.status(400).send(err);
                 res.cookie("qu_auth", business.token).status(200).json({
-                    isLogin: "true"
+                    isLogin: "true",
+                    business_id: business._id,
                 });
             });
         });
