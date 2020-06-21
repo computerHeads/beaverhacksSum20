@@ -14,12 +14,13 @@
             <div class="col-md-9 col-lg-8 mx-auto">
 
 
-            <h3 class="card-title text-center">Sign Up</h3>
-            <form class="form-signin">
-              <div class="form-label-group">
-                <input name="name" type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
-                <label for="inputName">Name</label>
-              </div>
+              <h3 class="card-title text-center">Sign Up</h3>
+              <form class="form-signin">
+                <div class="form-label-group">
+                  <input name="name" type="text" id="inputName" class="form-control" placeholder="Name" required
+                    autofocus>
+                  <label for="inputName">Name</label>
+                </div>
 
 
                 <div class="form-label-group">
@@ -45,10 +46,10 @@
                   <label for="inputBusinessName">Business Name</label>
                 </div>
 
-                {{!-- <div class="form-label-group">
-                  <input name="phone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="inputPhone" class="form-control" placeholder="Phone" required>
-                  <label for="inputPhone">Phone</label>
-                </div> --}}
+                <div class="form-label-group">
+                  <input name="phone" type="tel" id="phone" class="form-control">
+                  <span id="error-msg" class="hide"></span>
+                </div>
 
                 <div class="form-label-group">
                   <input name="website" type="text" id="inputWebsite" class="form-control" placeholder="Website">
@@ -64,7 +65,8 @@
                 </div>
 
                 <div class="form-label-group">
-                  <input name="addressTwo" type="text" id="inputAddressTwo" class="form-control address" placeholder="Address Line 2">
+                  <input name="addressTwo" type="text" id="inputAddressTwo" class="form-control address"
+                    placeholder="Address Line 2">
                   <label for="inputAddressTwo">Address 2</label>
                 </div>
 
@@ -152,19 +154,24 @@
                     </label>
                   </div>
 
-                </div> 
-              <button id="submitBtn" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onclick="sendAccountForm()">Register</button>
-            </form>
+                </div>
+                <button id="submitBtn" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
+                  onclick="sendAccountForm()">Register</button>
+              </form>
 
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Required JavaScript -->
-<script src="/client/addAccount.js"></script>
+  {{!-- cloud style sheet from cdnj.com for country codes --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css" />
+
+  <!-- Required JavaScript -->
+  <script src="/client/addAccount.js"></script>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

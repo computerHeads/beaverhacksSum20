@@ -14,7 +14,7 @@
 }
 
 .left-image {
-  background-image: url("img/clouds_sea.jpg");
+  background-image: url('img/clouds_sea.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -52,7 +52,6 @@
 .open-day {
   background-color: rgba(178, 205, 255, 0.303);
   border-radius: 2rem;
-  
 }
 
 .form-label-group select,
@@ -112,4 +111,8 @@
   padding-bottom: calc(var(--input-padding-y) / 3);
   font-size: 12px;
   color: #777;
+}
+
+.iti.iti--allow-dropdown {
+  width: 100%;
 }

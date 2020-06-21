@@ -47,7 +47,6 @@ function markCustomer(id) {
   req.setRequestHeader('Content-Type', 'application/json');
   req.send(JSON.stringify(payload));
   req.addEventListener('load', () => {
-    console.log(req.response);
     const { current, wait, tally } = JSON.parse(req.response);
     var customer = document.getElementById(id);
     let curCustomer = customer;

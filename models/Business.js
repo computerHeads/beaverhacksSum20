@@ -38,14 +38,14 @@ const BusinessSchema = new mongoose.Schema({
     isShowBusinessInfo: {
       type: Boolean,
     },
-    // phone: {
-  //   type: Number,
-  //   required: true,
-  //   unique: true,
-    // },
+    phone: {
+      type: Number,
+      required: true,
+      unique: true,
+    },
     address: {
-    type: String,
-    required: true,
+      type: String,
+      required: true,
     },
     open: {
       type: String,
