@@ -109,9 +109,9 @@ function cancel(customerId) {
     submitBtn.innerHTML = 'Submit';
     submitBtn.setAttribute('onclick', 'sendForm()');
     document.getElementsByTagName('form')[0].reset();
-    document.getElementById('hiddenDiv').style.display = 'inline-block'; // show the message that they have been deleted
+    document.getElementById('hiddenDiv').style.display = 'block'; // show the message that they have been deleted
     var cancelBtn = document.getElementById('cancelBtn');
-    cancelBtn.parentNode.removeChild(cancelBtn); // remove the btn
+    cancelBtn.style.display = 'hidden';
   });
   event.preventDefault();
 }
