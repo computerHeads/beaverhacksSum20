@@ -1,6 +1,8 @@
-# uQueue
+# uQueue - Digital queuing application for small businesses
 
-### A digital queuing application for small businesses
+- A submission to <a href="https://beaverhacks-summer-2020.devpost.com/">BeaverHacks Summer 2020</a> hackathon
+
+- **Authors**: <a href="https://github.com/jung8">Andrew Jung</a> / <a href="https://github.com/JamesWeiMoseley">James Moseley</a> / <a href="https://github.com/positive235">Hae-Ji Park</a>
 
 ## Inspiration
 
