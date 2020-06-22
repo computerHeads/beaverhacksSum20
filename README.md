@@ -1,1 +1,5 @@
-# beaverhacksSum20
+# uQueue
+
+### A digital queuing application for small businesses
+
+
