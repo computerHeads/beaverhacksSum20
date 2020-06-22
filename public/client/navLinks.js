@@ -1,8 +1,14 @@
 function logOutClicked() {
   var req = new XMLHttpRequest();
-  req.open('GET', 'http://localhost:3000/business/logout', true);
+
+  req.open('GET','http://localhost:3000/business/logout', true);
+  req.setRequestHeader('Content-Type', 'application/json');
   req.send(null);
+  window.location = "http://localhost:3000/";;
 }
+
+ 
+  
 
 function goToHome(businessId) {
   var req = new XMLHttpRequest();
