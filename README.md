@@ -12,7 +12,34 @@ It gives small business the capability to allow their customers to form lines re
 
 ## Built With
 
-- JavaScript / express.js / jquery / node.js / mongoDB / mongoose / html5 / css / bootstrap / cndjs / twilio
+JavaScript / express.js / jquery / node.js / mongoDB / mongoose / html5 / css / bootstrap / cndjs / twilio
 
 ## How to Run 
+
+1. Create `default.js` in `config` folder. 
+
+** It includes **private infos** - related to database, etc, so it is not uploaded.
+**Keep `default.js` private** and please make sure **not to upload or share with public**. **
+
+2. In `config/default.js`,
+
+```
+module.exports = {
+    mongoURI: 'your_mongoDB_URI_provided_by_mongoDB',
+    jwtSecret: 'you_can_enter_anything',
+    email: 'your_google_email_address_for_sending_notification',
+    emailPW: 'your_google_email_password',
+    accountSid: 'your_Account_SID_provided_by_Twilio',
+    authToken: 'your_Auth_Token_provided_by_Twilio',
+}
+```
+
+3. In Terminal, (Make sure you're at `beaverhacksSum20` folder)
+
+```
+npm i
+npm start
+```
+
+4. On your web browser, go to `http://localhost:your_port_number/` and enjoy!
 
