@@ -2,7 +2,10 @@
 
 - A <a href="https://devpost.com/software/uqueue">submission</a> to <a href="https://beaverhacks-summer-2020.devpost.com/">BeaverHacks Summer 2020</a> hackathon
 
-- **Authors**: <a href="https://github.com/jung8">Andrew Jung</a> / <a href="https://github.com/JamesWeiMoseley">James Moseley</a> / <a href="https://github.com/positive235">Hae-Ji Park</a>
+- **Created by**: 
+  - <a href="https://github.com/jung8">Andrew Jung</a> : I worked on the front and backend for the customer and business management interface, and sending notifications to customers via sms and email. I used JavaScript, Node.js, Express.js, mongoDB, HTML, and CSS.
+  - <a href="https://github.com/JamesWeiMoseley">James Moseley</a> : I did a lot of front end and styling. I worked with HTML, CSS, JQuery, and Bootstrap.
+  - <a href="https://github.com/positive235">Hae-Ji Park</a> : l worked on front and back end: login, logout, creating new user/business profile, authentication (by using jsonwebtoken), encrypting password(by using bcrypt). I worked with JavaScript, Node.js, Express, mongoDB, Bootstrap, HTML, CSS.
 
 ## Inspiration
 
@@ -18,7 +21,7 @@ We are going to keep working on our skills and maybe come back to this project. 
 
 ## How to Run 
 
-1. Create `default.js` in `config` folder. 
+1. Create new file named `default.js` in `config` folder. 
 
 ** It includes **private infos** - related to database, etc, so it is not uploaded.
 **Keep `default.js` private** and please make sure **not to upload or share with public**. **
