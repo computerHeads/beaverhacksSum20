@@ -1,0 +1,64 @@
+/* 
+Credit1: "Start Bootstrap" - https://startbootstrap.com/snippets/login/
+Credit2: "Start Bootstrap" - https://startbootstrap.com/snippets/sign-in-split/ 
+*/
+
+#hiddenDiv {
+  display: none;
+}
+
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: 0.75rem;
+}
+
+body {
+  background: #007bff;
+  background: linear-gradient(to right, #0062e6, #33aeff);
+}
+
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-img-left {
+  width: 45%;
+  /* Link to your background image using in the property below! */
+  background: scroll center url('../css/img/clouds_sea.jpg');
+  background-size: cover;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+}
+
+.iti.iti--allow-dropdown {
+  width: 100%;
+  margin-top: 8px;
+}
+form {
+  text-align: center;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  line-height: 30px;
+  border-radius: 25px;
+  border-width: 1px;
+  margin-top: 8px;
+}
+
+#submitBtn {
+  border-radius: 25px;
+  margin-bottom: 10px;
+}

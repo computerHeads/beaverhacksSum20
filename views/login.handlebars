@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="/css/css-login.css" />
+<!-- Login page contents -->
+<!-- Credit1: "Start Bootstrap" - https://startbootstrap.com/snippets/login/ -->
+<!-- Credit2: "Start Bootstrap" - https://startbootstrap.com/snippets/sign-in-split/ -->
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 left-image"></div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <h2 class="login-heading mb-4"> Welcome to <b>QUEUEUE:</b></h2>
+              <form>
+
+                <div class="form-label-group">
+                  <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email Address"
+                    required autofocus>
+                  <span id="email-error-msg" class="hide"></span>
+                </div>
+
+                <div class="form-label-group">
+                  <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password"
+                    required>
+                  <span id="pwd-error-msg" class="hide"></span>
+                </div>
+
+                <button id="submitBtn"
+                  class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit"
+                  onclick="sendLoginForm()">Sign in</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Required JavaScript -->
+<script src="/client/sendLoginInfo.js"></script>

@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+                <div class="card-img-left d-none d-md-flex">
+                    <!-- Background image for card set in CSS! -->
+                </div>
+
+                <div class="container">
+                    <div class="row ">
+                        <div class="col col-lg-10 col-md-8 col-sm-6 mx-auto">
+                            <div class="card-body">
+                                <br><br>
+                                <h1 class="text-center ">{{business.settings.businessName}}</h1>
+                                <div id="status">
+                                    <div id="hiddenDiv">
+                                        <h2>Your reservation has been canceled</h2>
+                                    </div>
+                                    There are currently <u>{{wait}}</u> people waiting ahead of you
+                                    {{!-- fix this  --}}
+                                </div>
+                                <hr>
+                                <!--customer form-->
+                                <form>
+                                    <p>Fill out your information below to be added to the waitlist: </p>
+                                    <input class="input" name="name" type="text" required="true" placeholder="Name">
+                                    <input class="input" type="hidden" id="country" name="country" />
+                                    <input class="input" id="phone" name="phone" type="tel">
+                                    <span id="error-msg" class="hide"></span>
+                                    <input class="input" name="email" type="email" placeholder="Email">
+                                    <input id="id" name="id" type="hidden" value="{{business._id}}">
+                                    <br><br>
+                                    <button id="submitBtn" class="btn btn-lg btn-primary btn-block text-uppercase"
+                                        onclick="sendForm()">Submit</button>
+                                </form>
+                                <button id="cancelBtn" class="btn btn-lg btn-primary btn-block text-uppercase"
+                                    onclick="cancel()" style="display:none;">Cancel reservation</button>
+                                <p>Business contact:</p>
+                                <hr>
+                                {{business.settings.address}}<br>
+                                {{business.settings.phone}}<br>
+                                {{business.email}}<br>
+                                <br><br>
+                                <!--end of customer form-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.js"></script>
+    {{!-- cloud style sheet from cdnj.com for country codes --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css" />
+    <link rel="stylesheet" href="/css/css-add-customer.css" />
+    <script src="../client/addCust.js"></script>

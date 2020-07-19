@@ -1,0 +1,186 @@
+<link rel="stylesheet" href="/css/css-create-account.css">
+<!-- Contents -->
+<!-- Credit1: "Start Bootstrap" - https://startbootstrap.com/snippets/registration-page/ -->
+<!-- Credit2: "Start Bootstrap" - https://startbootstrap.com/snippets/sign-in-split/ -->
+
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 left-image"></div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+
+
+              <h3 class="card-title text-center">Sign Up</h3>
+              <form class="form-signin">
+                <div class="form-label-group form-label-style">
+                  <input name="name" type="text" id="inputName" class="form-control" placeholder="Name" required
+                    autofocus>
+                  <label for="inputName">Name</label>
+                </div>
+
+
+                <div class="form-label-group form-label-style">
+                  <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                    required>
+                  <label for="inputEmail">Email address</label>
+                </div>
+
+                <hr>
+
+                <div class="form-label-group form-label-style">
+                  <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password"
+                    required>
+                  <label for="inputPassword">Password</label>
+                </div>
+                <hr>
+
+                <h4 class="card-title text-center">Business Info</h4>
+
+                <div class="form-label-group form-label-style">
+                  <input name="businessName" type="text" id="inputBusinessName" class="form-control"
+                    placeholder="Business Name" required>
+                  <label for="inputBusinessName">Business Name</label>
+                </div>
+
+                <div class="form-label-group phone">
+                  <input name="phone" type="tel" id="phone" class="form-control" placeholder="+1 201-555-0123">
+                  <span id="error-msg" class="hide"></span>
+                </div>
+
+                <div class="form-label-group form-label-style">
+                  <input name="website" type="text" id="inputWebsite" class="form-control" placeholder="Website">
+                  <label for="inputWebsite">Website</label>
+                </div>
+
+                <hr>
+
+                <div class="form-label-group form-label-style">
+                  <input name="addressOne" type="text" id="inputAddressOne" class="form-control address"
+                    placeholder="Address Line 1" required>
+                  <label for="inputAddressOne">Address 1</label>
+                </div>
+
+                <div class="form-label-group form-label-style">
+                  <input name="addressTwo" type="text" id="inputAddressTwo" class="form-control address"
+                    placeholder="Address Line 2">
+                  <label for="inputAddressTwo">Address 2</label>
+                </div>
+
+                <div class="form-label-group form-label-style">
+                  <input name="city" type="text" id="inputCity" class="form-control address" placeholder="City"
+                    required>
+                  <label for="inputCity">City</label>
+                </div>
+
+                <div class="form-label-group form-label-style">
+                  <input name="state" type="text" id="inputState" class="form-control address" placeholder="State"
+                    required>
+                  <label for="inputState">State</label>
+                </div>
+
+                <div class="form-label-group form-label-style">
+                  <input name="zip" type="text" id="inputZip" class="form-control address" placeholder="Zip" required>
+                  <label for="inputZip">Zip</label>
+                </div>
+
+                <hr>
+
+                <div class="form-label-group form-label-style">
+                  <input name="open" type="time" id="inputOpen" class="form-control" placeholder="Open" required>
+                  <label for="inputOpen">Open</label>
+                </div>
+
+                <div class="form-label-group form-label-style text-center open-day">
+                  <br><input name="openDays" type="checkbox" id="inputMon" value="Mon"> Mon
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input name="openDays" type="checkbox" id="inputTue" value="Tue"> Tue
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input name="openDays" type="checkbox" id="inputWed" value="Wed"> Wed
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input name="openDays" type="checkbox" id="inputThu" value="Thu"> Thu
+                  <hr>
+                  <input name="openDays" type="checkbox" id="inputFri" value="Fri"> Fri
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input name="openDays" type="checkbox" id="inputSat" value="Sat"> Sat
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input name="openDays" type="checkbox" id="inputSun" value="Sun"> Sun
+                  <br><br>
+                </div>
+
+                <div class="form-label-group form-label-style">
+                  <input name="close" type="time" id="inputClose" class="form-control" placeholder="Close" required>
+                  <label for="inputClose">Close</label>
+                </div>
+
+                <hr>
+
+                <div class="form-label-group form-label-style">
+                  <input name="maxOccupancy" type="number" id="inputMaxOccupancy" class="form-control"
+                    placeholder="Max Occupancy (tables/people)" required>
+                  <label for="inputMaxOccupancy">Max Occupancy (tables/people)</label>
+                </div>
+
+
+                <div class="col-auto my-2 form-label-group form-label-style">
+                  <select name="businessType" id="inputType" class="custom-select">
+                    <option selected>Choose Business Type... </option>
+                    <option name="businessType" value="Restaurants">Restaurants</option>
+                    <option name="businessType" value="Stores">Stores</option>
+                    <option name="businessType" value="Others">Others</option>
+                  </select>
+                </div>
+                <hr>
+
+                <div class="form-group text-center">
+                  <div class="form-check">
+                    <input name="isShowBusinessInfo" class="form-check-input" type="checkbox" value=""
+                      id="showBusinessInfoPublic" checked>
+                    <label class="form-check-label" for="showBusinessInfoPublic">
+                      Show my business info to public
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group text-center">
+                  <div class="form-check">
+                    <input name="isAgreeTerms" class="form-check-input" type="checkbox" value="" id="agreeCondition"
+                      checked required>
+                    <label class="form-check-label" for="agreeCondition">
+                      Agree to terms and conditions
+                    </label>
+                  </div>
+
+                </div>
+                <button id="submitBtn" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"
+                  onclick="sendAccountForm()">Register</button>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{!-- cloud style sheet from cdnj.com for country codes --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css" />
+
+  <!-- Required JavaScript -->
+  <script src="/client/addAccount.js"></script>
+
+  {{!-- <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script> --}}
